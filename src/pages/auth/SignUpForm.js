@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import signupimg from '../../assets/signupimg.png'
 
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import appStyles from "../../App.module.css";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Image from "react-bootstrap/Image";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
@@ -17,7 +20,11 @@ const SignUpForm = () => {
         <div className={styles.FullScreen}>
             <div className={`${styles.Row} ${styles.Overlay}`}>
                 <div className="text-center text-md-left ml-3 d-none d-lg-block p-0 p-lg-2 ">
-                    <h4 className="font-weight-bold">Join our community of ARTiza!</h4>   
+                <Image
+                    className={`${appStyles.FillerImage}`}
+                    src={signupimg}
+                    alt="signin image"
+                />
                 </div>
                 <Col className="my-auto p-0 p-md-2" md={6}>
                     <Row className="justify-content-center">
