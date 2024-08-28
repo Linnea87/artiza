@@ -77,6 +77,7 @@ In the Deploy tab:
     The site was deployed to Heroku. The steps to deploy are as follows:
 
     1. Launch the gitpod workspace.
+    
     2. Install ReactJS:
             
         ```
