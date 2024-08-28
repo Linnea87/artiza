@@ -1,70 +1,128 @@
-# Getting Started with Create React App
+# ARTiza
+## Table of Contents
+- [UX](#ux)
+    - [Site Purpose](#site-purpose)
+    - [Site Goal](#site-goal)
+    - [Audience](#audience)
+    - [Communication](#communication)
+    - [Current User Goals](#current-user-goals)
+    - [New User Goals](#new-use-goals)
+- [User Stories](#user-stories)
+    - [User Stories and Issues](#user-stories-and-issues)
+    - [User Stories List](#user-stories-list)
+    - [MoSCoW Prioritization](#moscow-prioritization)    
+    - [GitHub Kanban Board](#github-kanban-board)   
+- [Design](#design)
+    - [Colour Scheme](#colour-scheme)
+    - [Typography](#typography)
+- [Features](#features)
+    - [Existing Features](#existing-features)
+    - [C.R.U.D](#c.r.u.d)
+- [Testing](#testing)
+    - [Manual Testing](#manual.testing)
+    - [Automated Testing](#automated-testing)
+    - [Validator Testing](#validator-testing)
+    - [Bugs](#bugs)
+    - [Unfixed Bugs](#unfixed-bugs)
+- [Technologies Used](#technologies-used)
+    - [Main Languages Used](#main-languages-used)
+    - [Frameworks, Libraries & Programs Used](#frameworks-libraries-&-programs-used)
+    - [Databases Platform and Cloud Storage](#databases-platform-and-cloud-storage)
+- [Components](#components)
+    - [Contexts](#context)
+    - [Hooks](#hooks)
+    - [Utils](#utils)
+- [Deployment](#deployment)
+    - [Running the project by using Gitpod](#running-the-project-by-using-gitpod)
+    - [Deploying with Heroku](#deploying-with-heroku)
+    - [Connecting Frontend to the API](#connecting-frontend-to-the-api)
+    - [Final Deploy to Heroku](#final-deploy-to-heroku)
+- [Credits](#credits)
+    - [Content](#content)
+    - [Media](#media)
+    - [Acknowledgements](#acknowledgements)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Deployment
 
-## Available Scripts
+### Running the project by using Gitpod
 
-In the project directory, you can run:
+1. Go to the [project repository](https://github.com/Linnea87/artiza)
+2. Click the green button that says "Gitpod" and the project will now open up in Gitpod.
 
-### `npm start`
+### Deploying with Heroku
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+I followed the below steps using the Code Institute tutorial:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+1. Go to [Heroku.com](https://.heroku.com) and log in; if you do not already have an account then you will need to create one.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Click the `New` dropdown and select `Create New App`.
 
-### `npm run build`
+3. Enter a name for your new project, all Heroku apps need to have a unique name, you will be prompted if you need to change it.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Select the region you are working in.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+In the Deploy tab:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Connect your Heroku account to your Github Repository following these steps:
 
-### `npm run eject`
+    * Click on the `Deploy` tab and choose `Github-Connect to Github`.
+    * Enter the GitHub repository name and click on `Search`.
+    * Choose the correct repository for your application and click on `Connect`.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+2. You can then choose to deploy the project manually or automatically, automatic deployment will generate a new application every time you push a change to Github, whereas manual deployment requires you to push the `Deploy Branch` button whenever you want a change made.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Once you have chosen your deployment method and have clicked Deploy Branch your application will be built and you should now see the `View button`, click this to open your application.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    The site was deployed to Heroku. The steps to deploy are as follows:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    1. Launch the gitpod workspace.
+    2. Install ReactJS:
+            
+        ```
+        npx create-react-app . --use-npm
+        npm start
+        ```
 
-## Learn More
+    3. Install the following packages using the command npm install:
+        
+        ```
+        react-bootstrap@1.6.3 bootstrap@4.6.0
+        react-router-dom@5.3.0
+        axios
+        react-infinite-scroll-component
+        msw --save-dev
+        jwt-decode
+        -g eslint
+        ```
+    
+    4. Git add, commit, and push changes to gitpod.
+    
+    5. Create the project app on Heroku, and link the GitHub repository by navigating to the 'Deploy' tab.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Connecting Frontend to the API
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Navigated to the Heroku app of the project pp5-drf-api, and under the Settings tab, added the following configvars:
 
-### Code Splitting
+    * Key: `CLIENT_ORIGIN` | Value: https://react-app-name.herokuapp.com
+    * Key: `CLIENT_ORIGIN_DEV` | Value: https://gitpod-browser-link.ws-eu54.gitpod.io
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. Check that the trailing slash \ at the end of both links has been removed, and save the configvar pairs.
 
-### Analyzing the Bundle Size
+3. Install the Axios package, & create supporting `axiosDefaults.js` as shown in [Moments Walkthrough](https://github.com/Code-Institute-Solutions/moments/blob/cf955d2f2e6f70f61c92d1f9de85558d8e49f3a8/src/api/axiosDefaults.js).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Final Deploy to Heroku:
 
-### Making a Progressive Web App
+1. In the `scripts` section of `package.json` in gitpod, added the following command:
+    ```
+    "heroku-prebuild": "npm install -g serve",
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+2. Add Procfile to project root & populate with the following:
+    ```
+    web: serve -s build
+    ```
 
-### Advanced Configuration
+3. Repeat the steps of git add/commit/push.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4. Deploy the project via the deploy button on Heroku.
