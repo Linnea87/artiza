@@ -47,6 +47,7 @@
 ### Running the project by using Gitpod
 
 1. Go to the [project repository](https://github.com/Linnea87/artiza)
+
 2. Click the green button that says "Gitpod" and the project will now open up in Gitpod.
 
 ### Deploying with Heroku
@@ -74,32 +75,32 @@ In the Deploy tab:
 
 3. Once you have chosen your deployment method and have clicked Deploy Branch your application will be built and you should now see the `View button`, click this to open your application.
 
-    The site was deployed to Heroku. The steps to deploy are as follows:
+The site was deployed to Heroku. The steps to deploy are as follows:
 
-    1. Launch the gitpod workspace.
-    
-    2. Install ReactJS:
+1. Launch the gitpod workspace.
+
+2. Install ReactJS:
             
-        ```
-        npx create-react-app . --use-npm
-        npm start
-        ```
+    ```
+    npx create-react-app . --use-npm
+    npm start
+    ```
 
-    3. Install the following packages using the command npm install:
+3. Install the following packages using the command npm install:
         
-        ```
-        react-bootstrap@1.6.3 bootstrap@4.6.0
-        react-router-dom@5.3.0
-        axios
-        react-infinite-scroll-component
-        msw --save-dev
-        jwt-decode
-        -g eslint
-        ```
+    ```
+    react-bootstrap@1.6.3 bootstrap@4.6.0
+    react-router-dom@5.3.0
+    axios
+    react-infinite-scroll-component
+    msw --save-dev
+    jwt-decode
+    -g eslint
+    ```
     
-    4. Git add, commit, and push changes to gitpod.
+4. Git add, commit, and push changes to gitpod.
     
-    5. Create the project app on Heroku, and link the GitHub repository by navigating to the 'Deploy' tab.
+5. Create the project app on Heroku, and link the GitHub repository by navigating to the 'Deploy' tab.
 
 ### Connecting Frontend to the API
 
