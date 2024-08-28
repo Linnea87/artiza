@@ -11,7 +11,7 @@ const NavBar = () => {
       <Container>
         <NavLink  to="/">
           <Navbar.Brand>
-            <img src={logo} alt="logo" height="70" />
+            <img src={logo} alt="logo" height="55" />
           </Navbar.Brand>
         </NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -29,14 +29,14 @@ const NavBar = () => {
               activeClassName={styles.Active}
               to="/signin"
             >
-              <i className="fas fa-sign-in-alt"></i>Sign in
+              <i className="fas fa-sign-in-alt"></i>Sign In
             </NavLink>
             <NavLink 
               className={styles.NavLink}
               activeClassName={styles.Active}
               to="/signup"
             >
-              <i className="fas fa-user-plus"></i>Sign up
+              <i className="fas fa-user-plus"></i>Sign Up
             </NavLink>
           </Nav>
         </Navbar.Collapse>
