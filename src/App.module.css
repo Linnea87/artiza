@@ -47,6 +47,10 @@ a:hover i {
   transition: color ease-in-out 0.3s;
 }
 
+input[type="file"] {
+  display: none;
+}
+
 i {
   color: #cfced3;
   font-size: 1.6rem;
@@ -58,4 +62,9 @@ i:hover {
   cursor: pointer;
   transition: color ease-in-out 0.3s;
   color: #3FADB8;
+}
+
+figure {
+  text-align: center;
+  display: inline-block;
 }
