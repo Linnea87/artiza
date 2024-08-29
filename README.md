@@ -37,6 +37,7 @@
     - [Deploying with Heroku](#deploying-with-heroku)
     - [Connecting Frontend to the API](#connecting-frontend-to-the-api)
     - [Final Deploy to Heroku](#final-deploy-to-heroku)
+    - [Cloning and Forking](#cloning-and-forking)
 - [Credits](#credits)
     - [Content](#content)
     - [Media](#media)
@@ -128,3 +129,31 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 3. Repeat the steps of git add/commit/push.
 
 4. Deploy the project via the deploy button on Heroku.
+
+### Cloning and Forking
+
+If you want to clone or fork this project, you can do it from my [GitHub repository](https://github.com/Linnea87/artiza).
+
+Keep in mind that this is only the front-end and you will need a back-end to run this application.
+
+Take a look at the [artiza-api repository](https://github.com/Linnea87/artiza-api), for more information on how to set that up.
+
+You should start by setting up a virtual environment, to avoid conflicts and other potential issues.
+
+**Cloning** the project means you are creating a local copy of the project on your own machine.
+
+This enables you to make changes without affecting the original repository.
+
+**Forking** it means you are creating a copy of the project on your own GitHub account,
+
+which gives you the ability to propose changes to the original project,
+
+or just develop your own modified version of it.
+
+Since this project uses npm, it is good practice you do the same.
+
+Make sure you are in the root directory, then run npm install
+
+In the src directory, open axiosDefaults.js and change axios.defaults.baseURL to your own API url.
+
+
