@@ -30,7 +30,7 @@ function ProfilePage() {
   const currentUser = useCurrentUser();
   const { id } = useParams();
 
-  const setProfileData = useSetProfileData();
+  const {setProfileData, handleFollow, handleUnfollow} = useSetProfileData();
   const { pageProfile } = useProfileData();
 
   const [profile] = pageProfile.results;
@@ -44,7 +44,7 @@ function ProfilePage() {
             axiosReq.get(`/profiles/${id}/`),
             axiosReq.get(`/posts/?owner__profile=${id}`),
           ]);
-        setProfileData((prevState) => ({
+          setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
@@ -70,15 +70,15 @@ function ProfilePage() {
         <Col lg={6}>
           <h3 className="m-2">{profile?.owner}</h3>
           <Row className="justify-content-center no-gutters">
-            <Col xs={3} className="my-2 m2">
+            <Col xs={3} className="my-2 m-2">
               <div>{profile?.posts_count}</div>
               <div>posts</div>
             </Col>
-            <Col xs={3} className="my-2 m2">
+            <Col xs={3} className="my-2 m-2">
               <div>{profile?.followers_count}</div>
               <div>followers</div>
             </Col>
-            <Col xs={3} className="my-2 m2">
+            <Col xs={3} className="my-2 m-2">
               <div>{profile?.following_count}</div>
               <div>following</div>
             </Col>
@@ -90,14 +90,14 @@ function ProfilePage() {
             (profile?.following_id ? (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.BlueOutline}`}
-                onClick={() => {}}
+                onClick={() => handleUnfollow(profile)}
               >
                 unfollow
               </Button>
             ) : (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.Blue}`}
-                onClick={() => {}}
+                onClick={() => handleFollow(profile)}
               >
                 follow
               </Button>
@@ -111,7 +111,7 @@ function ProfilePage() {
   const mainProfilePosts = (
     <>
       <hr />
-      <p className="text-center">{profile?.owner}'s posts</p>
+      <p className="text-center"> Posts</p>
       <hr />
       {profilePosts.results.length ? (
         <InfiniteScroll
@@ -127,7 +127,7 @@ function ProfilePage() {
               </Col>
             ))}
           </Row>
-      </InfiniteScroll>
+        </InfiniteScroll>
       ) : (
         <Asset
           src={NoPosts}
