@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import appStyles from "../../App.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -35,7 +34,7 @@ const PopularProfiles = ({ mobile }) => {
 
   return (
     <Container
-      className={`${appStyles.Content} ${
+      className={`${
         mobile && "d-lg-none text-center mb-3"
       }`}
     >
