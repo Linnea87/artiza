@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
+import Image from "react-bootstrap/Image";
 
 import Asset from "../../components/Asset";
 
@@ -14,15 +16,12 @@ import PopularProfiles from "./PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
-import {
-  useProfileData,
-  useSetProfileData,
-} from "../../contexts/ProfileDataContext";
-import { Button, Image } from "react-bootstrap";
+import {useProfileData, useSetProfileData,} from "../../contexts/ProfileDataContext";
+
 import InfiniteScroll from "react-infinite-scroll-component";
-import Post from "../posts/Post";
 import { fetchMoreData } from "../../utils/utils";
 import NoPosts from "../../assets/no-posts.png";
+import ProfilePost from "./ProfilePost";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -71,15 +70,15 @@ function ProfilePage() {
         <Col lg={6}>
           <h3 className="m-2">{profile?.owner}</h3>
           <Row className="justify-content-center no-gutters">
-            <Col xs={3} className="my-2">
+            <Col xs={3} className="my-2 m2">
               <div>{profile?.posts_count}</div>
               <div>posts</div>
             </Col>
-            <Col xs={3} className="my-2">
+            <Col xs={3} className="my-2 m2">
               <div>{profile?.followers_count}</div>
               <div>followers</div>
             </Col>
-            <Col xs={3} className="my-2">
+            <Col xs={3} className="my-2 m2">
               <div>{profile?.following_count}</div>
               <div>following</div>
             </Col>
@@ -104,7 +103,7 @@ function ProfilePage() {
               </Button>
             ))}
         </Col>
-        {profile?.content && <Col className="p-3">{profile.content}</Col>}
+        {profile?.content && <Col className="text-lg-left p-3">{profile.content}</Col>}
       </Row>
     </>
   );
@@ -116,14 +115,19 @@ function ProfilePage() {
       <hr />
       {profilePosts.results.length ? (
         <InfiniteScroll
-          children={profilePosts.results.map((post) => (
-            <Post key={post.id} {...post} setPosts={setProfilePosts} />
-          ))}
           dataLength={profilePosts.results.length}
           loader={<Asset spinner />}
           hasMore={!!profilePosts.next}
           next={() => fetchMoreData(profilePosts, setProfilePosts)}
-        />
+        >
+          <Row noGutters >
+            {profilePosts.results.map((post) => (
+              <Col key={post.id} lg={4} md={4} xs={6}>
+                <ProfilePost {...post} setPosts={setProfilePosts} />
+              </Col>
+            ))}
+          </Row>
+      </InfiniteScroll>
       ) : (
         <Asset
           src={NoPosts}
