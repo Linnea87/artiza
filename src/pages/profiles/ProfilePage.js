@@ -21,6 +21,7 @@ import {useProfileData, useSetProfileData,} from "../../contexts/ProfileDataCont
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import NoPosts from "../../assets/no-posts.png";
+import { ProfileEditDropdown } from "../../components/MoreDropdown";
 import ProfilePost from "./ProfilePost";
 
 function ProfilePage() {
@@ -59,52 +60,53 @@ function ProfilePage() {
 
   const mainProfile = (
     <>
-      <Row noGutters className="px-3 text-center">
-        <Col lg={3} className="text-lg-left">
-          <Image
-            className={styles.ProfileImage}
-            roundedCircle
-            src={profile?.image}
-          />
-        </Col>
-        <Col lg={6}>
-          <h3 className="m-2">{profile?.owner}</h3>
-          <Row className="justify-content-center no-gutters">
-            <Col xs={3} className="my-2 m-2">
-              <div>{profile?.posts_count}</div>
-              <div>posts</div>
-            </Col>
-            <Col xs={3} className="my-2 m-2">
-              <div>{profile?.followers_count}</div>
-              <div>followers</div>
-            </Col>
-            <Col xs={3} className="my-2 m-2">
-              <div>{profile?.following_count}</div>
-              <div>following</div>
-            </Col>
-          </Row>
-        </Col>
-        <Col lg={3} className="text-lg-right">
-          {currentUser &&
-            !is_owner &&
-            (profile?.following_id ? (
-              <Button
-                className={`${btnStyles.Button} ${btnStyles.BlueOutline}`}
-                onClick={() => handleUnfollow(profile)}
-              >
-                unfollow
-              </Button>
-            ) : (
-              <Button
-                className={`${btnStyles.Button} ${btnStyles.Blue}`}
-                onClick={() => handleFollow(profile)}
-              >
-                follow
-              </Button>
-            ))}
-        </Col>
-        {profile?.content && <Col className="text-lg-left p-3">{profile.content}</Col>}
-      </Row>
+      {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
+        <Row noGutters className="px-3 text-center">
+          <Col lg={3} className="text-lg-left">
+            <Image
+              className={styles.ProfileImage}
+              roundedCircle
+              src={profile?.image}
+            />
+          </Col>
+          <Col lg={6}>
+            <h3 className="m-2">{profile?.owner}</h3>
+            <Row className="justify-content-center no-gutters">
+              <Col xs={3} className="my-2 m-2">
+                <div>{profile?.posts_count}</div>
+                <div>posts</div>
+              </Col>
+              <Col xs={3} className="my-2 m-2">
+                <div>{profile?.followers_count}</div>
+                <div>followers</div>
+              </Col>
+              <Col xs={3} className="my-2 m-2">
+                <div>{profile?.following_count}</div>
+                <div>following</div>
+              </Col>
+            </Row>
+          </Col>
+          <Col lg={3} className="text-lg-right">
+            {currentUser &&
+              !is_owner &&
+              (profile?.following_id ? (
+                <Button
+                  className={`${btnStyles.Button} ${btnStyles.BlueOutline}`}
+                  onClick={() => handleUnfollow(profile)}
+                >
+                  unfollow
+                </Button>
+              ) : (
+                <Button
+                  className={`${btnStyles.Button} ${btnStyles.Blue}`}
+                  onClick={() => handleFollow(profile)}
+                >
+                  follow
+                </Button>
+              ))}
+          </Col>
+          {profile?.content && <Col className="text-lg-left p-3">{profile.content}</Col>}
+        </Row>
     </>
   );
 
