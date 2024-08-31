@@ -13,8 +13,8 @@ export const handlers = [
         "last_name": "",
         "profile_id": 1,
         "profile_image": "https://res.cloudinary.com/delcgfh9h/image/upload/v1/media/images/IMG_0736_snkmsl"
-      })
-    );
+      }
+    ));
   }),
   rest.post(`${baseURL}dj-rest-auth/logout/`, (req, res, ctx) => {
     return res(ctx.status(200));
