@@ -52,13 +52,12 @@ const SignUpForm = () => {
   return (
     <div className={styles.FullScreen}>
       <div className={`${styles.Row} ${styles.Overlay}`}>
-        <div className="text-center text-md-left ml-3 d-none d-lg-block p-0 p-lg-2 ">
-          <Image
-            className={`${appStyles.FillerImage}`}
+        <Col>
+          <Image className={`${appStyles.FillerImage}`}
             src={signupimg}
-            alt="signin image"
+            alt="signout image"
           />
-        </div>
+        </Col>
         <Col className="my-auto p-0 p-md-2" md={6}>
           <Row className="justify-content-center">
             <Col xs={10} sm={6} md={10} lg={8}>

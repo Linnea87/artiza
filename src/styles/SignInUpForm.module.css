@@ -1,48 +1,44 @@
 .FullScreen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(0.25turn,  #070924, #7489ac,  #070924);
-    overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
-  
+
 .Overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.2);
-    
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 
 .Form {
-    background-color: rgba(0, 0, 0, 0.4);
-    border: 1px solid #dadadf;
-    border-radius: 5px;
-    margin-bottom: 16px;
-    text-align: center;
-  }
+  margin-bottom: 16px;
+  text-align: center;
+}
 
 .Row {
-    height: 100%;
+  height: 100%;
 }
 
 .Input {
-  background: #ffffff;
-  border: 1px solid #f0f1f9;
+  background: #000000;
+  border: 1px solid #a3a3a3;
   box-sizing: border-box;
   border-radius: 2px;
-  color: #000000;
   text-align: center;
   padding: 10px;
 }
-  
+
+
+
 .Header {
   font-style: normal;
   font-weight: bold;
@@ -51,28 +47,40 @@
   text-align: center;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color:  #3FADB8;
+  color: #3fadb8;
 }
-  
+
 .Link {
   text-decoration: none;
   text-align: center;
   display: block;
   margin: auto;
 }
-  
+
 .Link span {
-  color: #F4743B;
+  color: #f4743b;
 }
-  
+
 .Container {
   padding: 30px 10px;
 }
 
-.SignInCol {
+/* .SignInCol {
   height: 320px;
 }
 
 .SignUpCol {
   height: 375px;
+} */
+
+
+@media (max-width: 800px) {
+  .Overlay {
+    flex-direction: column;
+  }
+
+  .Form {
+    margin-bottom: 24px;
+  }
+  
 }

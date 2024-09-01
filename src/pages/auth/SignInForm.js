@@ -58,8 +58,8 @@ function SignInForm() {
 
   return (
     <div className={styles.FullScreen}>
-        <div className={`${styles.Row} ${styles.Overlay}`}>
-            <div className="text-center text-md-left ml-3 d-none d-lg-block p-0 p-lg-2 ">
+        <div className={`${styles.Row} ${styles.Overlay} $`}>
+            <div>
                 <Image
                     className={`${appStyles.FillerImage}`}
                     src={signinimg}
