@@ -14,6 +14,7 @@ import btnStyles from "../../styles/Button.module.css";
 
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import axios from "axios";
 
 function PostEditForm() {
   const [errors, setErrors] = useState({});
@@ -47,54 +48,62 @@ function PostEditForm() {
     handleMount();
   }, [history, id]);
 
+
   useEffect(() => {
+    // fetching categories
     const fetchCategories = async () => {
       try {
-        const response = await fetch('https://artiza-api-fbf88e8a2da5.herokuapp.com/categories/');
-        const data = await response.json();
-        if (Array.isArray(data.results)) {
-          setCategories(data.results);
-        }
+        const { data } = await axios.get("/categories/");
+        setCategories(data);
       } catch (err) {
-        // Console.log(error);
+        // console.log(err);
       }
     };
-
     fetchCategories();
   }, []);
 
-  const handleChange = (event) => {
+  const handleChange = (e) => {
     setPostData({
       ...postData,
-      [event.target.name]: event.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
-  const handleChangeImage = (event) => {
-    if (event.target.files.length) {
+  const handleChangeImage = (e) => {
+    if (e.target.files.length) {
       URL.revokeObjectURL(image);
       setPostData({
         ...postData,
-        image: URL.createObjectURL(event.target.files[0]),
+        image: URL.createObjectURL(e.target.files[0]),
       });
     }
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleChangeCategory = (e) => {
+    // category change handler
+    setPostData({
+      ...postData,
+      category: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const formData = new FormData();
 
     formData.append("title", title);
     formData.append("content", content);
-    formData.append("category", category);
+   
 
     if (imageInput?.current?.files[0]) {
       formData.append("image", imageInput.current.files[0]);
+  
     }
+    formData.append("category", category);
 
     try {
-      await axiosReq.put(`/posts/${id}/`, formData);
-      history.push(`/posts/${id}`);
+      const { data } = await axiosReq.put(`/posts/${id}/`, formData);
+      history.push(`/posts/${data.id}`);
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
@@ -137,16 +146,17 @@ function PostEditForm() {
       ))}
 
       <Form.Group>
-        <Form.Label>Category</Form.Label>
+        <Form.Label htmlFor="category">Category</Form.Label>
         <Form.Control
           as="select"
-          name="category"
+          aria-label="category"
+          id="category"
           value={category}
-          onChange={handleChange}
+          onChange={handleChangeCategory}
         >
           <option value="">Select a Category</option>
           {categories.map((category) => (
-            <option key={category.id} value={category.name}>
+            <option key={category.id} value={category.id}>
               {category.name}
             </option>
           ))}

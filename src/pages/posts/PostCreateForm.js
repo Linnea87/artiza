@@ -17,6 +17,8 @@ import { Image } from "react-bootstrap";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
+import axios from "axios";
+
 
 function PostCreateForm() {
   useRedirect("loggedOut");
@@ -30,54 +32,63 @@ function PostCreateForm() {
   });
   const { title, content, image, category } = postData;
 
-  const [categories, setCategories]= useState([])
+  const [categories, setCategories] = useState([]);
 
   const imageInput = useRef(null);
   const history = useHistory();
 
-  // Fetch categories from the API when the component mounts
+
   useEffect(() => {
+    /* fetching and setting categories
+    used in the form dropdown */
     const fetchCategories = async () => {
       try {
-        const response = await fetch('https://artiza-api-fbf88e8a2da5.herokuapp.com/categories/');
-        const data = await response.json();
-        if (Array.isArray(data.results)) {
-          setCategories(data.results);
-        }
+        const { data } = await axios.get("/categories/");
+        setCategories(data);
       } catch (err) {
-        // Console.log(error);
+        // console.log(err);
       }
     };
-
     fetchCategories();
   }, []);
 
-
-  const handleChange = (event) => {
+  
+  const handleChange = (e) => {
     setPostData({
       ...postData,
-      [event.target.name]: event.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
-  const handleChangeImage = (event) => {
-    if (event.target.files.length) {
+  const handleChangeImage = (e) => {
+    if (e.target.files.length) {
       URL.revokeObjectURL(image);
       setPostData({
         ...postData,
-        image: URL.createObjectURL(event.target.files[0]),
+        image: URL.createObjectURL(e.target.files[0]),
       });
     }
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleChangeCategory = (e) => {
+    // category change handler
+    setPostData({
+      ...postData,
+      category: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const formData = new FormData();
 
     formData.append("title", title);
     formData.append("content", content);
-    formData.append("image", imageInput.current.files[0]);
-
+    if (imageInput.current.files.length !== 0) {
+      formData.append("image", imageInput.current.files[0]);
+    }
+    formData.append("category", category);
+   
     try {
       const { data } = await axiosReq.post("/posts/", formData);
       history.push(`/posts/${data.id}`);
@@ -124,24 +135,25 @@ function PostCreateForm() {
       ))}
 
       <Form.Group>
-        <Form.Label>Category</Form.Label>
+        <Form.Label htmlFor="category">Category</Form.Label>
         <Form.Control
           as="select"
-          name="category"
-          value={category}
-          onChange={handleChange}
+          aria-label="category"
+          id="category"
+          defaultValue="Category"
+          onChange={handleChangeCategory}
         >
-          <option value="">Select a Category</option>
-          {categories.map((category) => (
-            <option key={category.id} value={category.name}>
+          <option disabled>Category</option>
+          {categories.results?.map((category) => (
+            <option key={category.id} value={category.id}>
               {category.name}
             </option>
           ))}
         </Form.Control>
       </Form.Group>
-      {errors?.category?.map((message, idx) => (
+      {errors.category?.map((idx) => (
         <Alert variant="warning" key={idx}>
-          {message}
+          You need to choose a category.
         </Alert>
       ))}
 
