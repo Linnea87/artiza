@@ -17,12 +17,13 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import PopularProfiles from "../profiles/PopularProfiles";
+import axios from "axios";
+import ArtCategories from "../../components/ArtCategories";
 
-
-function PostsPage({ message, filter = "" }) {
+function PostsPage({ message, filter = "", selectedCategory = "" }) {
 
   const [posts, setPosts] = useState({ results: [] });
-  const [hasLoaded, setHasLoaded] = useState(false);
+  const [hasloaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
   
   const [query, setQuery] = useState("");
@@ -32,14 +33,21 @@ function PostsPage({ message, filter = "" }) {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const { data } = await axiosReq.get(`/posts/?${filter}serch=${query}`);
-        setPosts(data);
+        // the request string will contain filter parameter, which comes from the filter prop we set in routes.
+        // tells API if we want to see all posts or certain ones.
+        if (currentUser == null) {
+          const { data } = await axios.get(`/posts/?${filter}`);
+          setPosts(data);
+        } else {
+          const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
+          setPosts(data);
+        }
+        // setting IsLoaded to true so spinner no longer spins.
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
-
     setHasLoaded(false);
     const timer = setTimeout(() => {
       fetchPosts();
@@ -62,14 +70,14 @@ function PostsPage({ message, filter = "" }) {
         >
           <Form.Control
             value={query}
-            onChange={(event) => setQuery(event.target.value)}
+            onChange={(e) => setQuery(e.target.value)}
             type="text"
             className="mr-sm-2"
             placeholder="Search posts"
           />
         </Form>
 
-        {hasLoaded ? (
+        {hasloaded ? (
           <>
             {posts.results.length ? (
               <InfiniteScroll
@@ -94,10 +102,17 @@ function PostsPage({ message, filter = "" }) {
         )}
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-        <PopularProfiles />
+        <PopularProfiles /> 
+        
+        <ArtCategories selectedCategory={selectedCategory} />
       </Col>
+      
+       
+     
     </Row>
   );
 }
 
 export default PostsPage;
+
+
