@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios"
 
-import signinimg from "../../assets/signinimg.png";
+import signinimg from "../../assets/signinimg.webp";
 
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
