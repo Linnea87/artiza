@@ -15,7 +15,6 @@ import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
 
 const NavBar = () => {
-
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
@@ -36,8 +35,9 @@ const NavBar = () => {
     <NavLink
       className={styles.NavLink}
       activeClassName={styles.Active}
-      to="/posts/create"
-    >
+      aria-label="AddPost"
+      rel="noreferrer"
+      to="/posts/create">
       <i className="fas fa-plus-square"></i>Add post
     </NavLink>
   );
@@ -47,25 +47,33 @@ const NavBar = () => {
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
-        to="/feed"
-      >
+        aria-label="Feed"
+        rel="noreferrer"
+        to="/feed">
         <i className="fas fa-stream"></i>Feed
       </NavLink>
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
-        to="/liked"
-      >
+        aria-label="Liked"
+        rel="noreferrer"
+        to="/liked">
         <i className="fas fa-heart"></i>Liked
       </NavLink>
-      <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
+      <NavLink 
+        className={styles.NavLink} 
+        aria-label="SignOut"
+        rel="noreferrer"
+        to="/" 
+        onClick={handleSignOut}>
         <i className="fas fa-sign-out-alt"></i>Sign out
       </NavLink>
       <NavLink
         className={styles.NavLink}
-        to={`/profiles/${currentUser?.profile_id}`}
-      >
-        <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
+        aria-label="Profile"
+        rel="noreferrer"
+        to={`/profiles/${currentUser?.profile_id}`}>
+        <Avatar src={currentUser?.profile_image} text="Profile" height={40} /> 
       </NavLink>
     </>
   );
@@ -75,15 +83,16 @@ const NavBar = () => {
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
-        to="/signin"
-      >
+        aria-label="Sign In"
+        rel="noreferrer"
+        to="/signin">
         <i className="fas fa-sign-in-alt"></i>Sign in
       </NavLink>
       <NavLink
-        to="/signup"
         className={styles.NavLink}
         activeClassName={styles.Active}
-      >
+        aria-label="Sign Up"
+        to="/signup">
         <i className="fas fa-user-plus"></i>Sign up
       </NavLink>
     </>
@@ -103,20 +112,22 @@ const NavBar = () => {
           </Navbar.Brand>
         </NavLink>
         {currentUser && addPostIcon}
-        <Navbar.Toggle 
+          <Navbar.Toggle
           ref={ref}
           onClick={() => setExpanded(!expanded)}
           aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+          <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
             <NavLink 
               exact
               className={styles.NavLink}
               activeClassName={styles.Active} 
-              to="/"
-            >
+              aria-label="Home page"
+              rel="noreferrer"
+              to="/">
               <i className="fas fa-home"></i>Home
             </NavLink>
+
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>
