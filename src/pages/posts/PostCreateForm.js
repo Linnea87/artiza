@@ -6,22 +6,23 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
+import  Image  from "react-bootstrap/Image";
 
 import Upload from "../../assets/upload.png";
+import Asset from "../../components/Asset";
+import { useRedirect } from "../../hooks/useRedirect";
+import { axiosReq } from "../../api/axiosDefaults";
+import { useHistory } from "react-router";
+
 
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import Asset from "../../components/Asset";
-import { Image } from "react-bootstrap";
-import { useHistory } from "react-router";
-import { axiosReq } from "../../api/axiosDefaults";
-import { useRedirect } from "../../hooks/useRedirect";
-import axios from "axios";
 
 
 function PostCreateForm() {
-  useRedirect("loggedOut");
+  useRedirect('loggedOut')
+
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
@@ -30,70 +31,59 @@ function PostCreateForm() {
     image: "",
     category: "",
   });
+  
   const { title, content, image, category } = postData;
-
-  const [categories, setCategories] = useState([]);
 
   const imageInput = useRef(null);
   const history = useHistory();
 
-
-  useEffect(() => {
-    /* fetching and setting categories
-    used in the form dropdown */
-    const fetchCategories = async () => {
-      try {
-        const { data } = await axios.get("/categories/");
-        setCategories(data);
-      } catch (err) {
-        // console.log(err);
-      }
-    };
-    fetchCategories();
-  }, []);
-
+  const [categories, setCategories] = useState({ results: []});
   
-  const handleChange = (e) => {
+  const handleChange = (event) => {
     setPostData({
       ...postData,
-      [e.target.name]: e.target.value,
+      [event.target.name]: event.target.value,
     });
   };
 
-  const handleChangeImage = (e) => {
-    if (e.target.files.length) {
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const {data } = await axiosReq.get(`/categories`)
+        setCategories( data)
+      } catch (err) {
+          // console.log(err)
+      };
+    };
+    fetchCategories()
+  }, []);
+
+  const handleChangeImage = (event) => {
+    if (event.target.files.length) {
       URL.revokeObjectURL(image);
       setPostData({
         ...postData,
-        image: URL.createObjectURL(e.target.files[0]),
+        image: URL.createObjectURL(event.target.files[0]),
       });
     }
   };
 
-  const handleChangeCategory = (e) => {
-    // category change handler
-    setPostData({
-      ...postData,
-      category: e.target.value,
-    });
-  };
+ 
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     const formData = new FormData();
 
     formData.append("title", title);
     formData.append("content", content);
-    if (imageInput.current.files.length !== 0) {
-      formData.append("image", imageInput.current.files[0]);
-    }
+    formData.append("image", imageInput.current.files[0]);
     formData.append("category", category);
+  
    
     try {
       const { data } = await axiosReq.post("/posts/", formData);
       history.push(`/posts/${data.id}`);
     } catch (err) {
-      console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
@@ -109,6 +99,7 @@ function PostCreateForm() {
           name="title"
           value={title}
           onChange={handleChange}
+          required
         />
       </Form.Group>
       {errors?.title?.map((message, idx) => (
@@ -139,23 +130,25 @@ function PostCreateForm() {
         <Form.Control
           as="select"
           aria-label="category"
-          id="category"
+          name="category"
           defaultValue="Category"
-          onChange={handleChangeCategory}
+          onChange={handleChange}
         >
           <option disabled>Category</option>
           {categories.results?.map((category) => (
-            <option key={category.id} value={category.id}>
+            <option key={category.name} value={category.id}>
               {category.name}
             </option>
           ))}
         </Form.Control>
-      </Form.Group>
-      {errors.category?.map((idx) => (
+      </Form.Group> 
+
+      {errors?.category?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
-          You need to choose a category.
+          {message}
         </Alert>
       ))}
+      
 
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
@@ -167,7 +160,7 @@ function PostCreateForm() {
         create
       </Button>
     </div>
-  );
+  )
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -208,7 +201,7 @@ function PostCreateForm() {
                 accept="image/*"
                 onChange={handleChangeImage}
                 ref={imageInput}
-               
+                required
               />
             </Form.Group>
             <div className="d-md-none">{textFields}</div>
