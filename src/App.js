@@ -9,7 +9,7 @@ import PostCreateForm from "./pages/posts/PostCreateForm";
 import PostPage from "./pages/posts/PostPage";
 import PostsPage from "./pages/posts/PostsPage"
 import { useCurrentUser } from "./contexts/CurrentUserContext";
-import { useSelectedCategory } from "./contexts/SelectedCategoryContext";
+
 import PostEditForm from "./pages/posts/PostEditForm";
 import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameForm from "./pages/profiles/UsernameForm";
@@ -20,7 +20,7 @@ import NotFound from "./components/NotFound";
 function App() {
 
   const currentUser = useCurrentUser();
-  const selectedCategory = useSelectedCategory();
+
   const profile_id = currentUser?.profile_id || "";
 
 
@@ -55,18 +55,6 @@ function App() {
               <PostsPage
                 message="No results found. Adjust the search keyword or like a post."
                 filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/categories/:id/posts"
-            render={() => (
-              // message for when search brings up no results.
-              <PostsPage
-                message="No posts in this category."
-                filter={`category_id=${selectedCategory}&ordering=-created&`}
-                selectedCategory={selectedCategory}
               />
             )}
           />
