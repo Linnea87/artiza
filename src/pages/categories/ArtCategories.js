@@ -43,28 +43,31 @@ const ArtCategories = ({ selectedCategory, mobile }) => {
           {mobile ? (
             <div className="d-flex justify-content-around">
               {categories.results.slice()?.map((category) => (
-              <Link
+              <Link 
+              
                 to={`/categories/${category.id}/posts`}
                 className={styles.CategoryName}
                 key={category.id}
                 onClick={() => handleClick(category.id)}
-            >
-                {category.name}
-              </Link>
-            
-              ))}
+              >
+                 <i class="fa-solid fa-palette fa-lg"></i>
+                 {category.name} 
+               
+              </Link>  
+              ))} 
             </div>
+           
           ) : (
             categories.results?.map((category) => (
             <Link
               to={`/categories/${category.id}/posts`}
               className={styles.CategoryName}
               key={category.id}
-              onClick={() => handleClick(category.id)}
-            >
+              onClick={() => handleClick(category.id)} > 
+              <i class="fa-solid fa-palette fa-lg"></i>
               {category.name}
             </Link>
-            ))
+            )) 
           )}
         </>
       ) : (
