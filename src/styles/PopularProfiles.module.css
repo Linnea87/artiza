@@ -6,5 +6,12 @@
     letter-spacing: 0.3em;
     text-transform: uppercase;
     color: #ffffff;
+    
 }
+
+.ProfileContainer {
+   background-color:  #181818d2;
+    margin-top: 0px;
+    top: 80px;
+  }
   

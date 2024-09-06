@@ -4,13 +4,14 @@ import Asset from "../../components/Asset";
 import { useProfileData } from "../../contexts/ProfileDataContext";
 import  Profile  from "./Profile";
 import styles from "../../styles/PopularProfiles.module.css";
+import appStyles from "../../App.module.css";
 
 const PopularProfiles = ({ mobile }) => {
   const { popularProfiles } = useProfileData();
   
   return (
     <Container
-      className={`${
+      className={` ${styles.ProfileContainer} ${
         mobile && "d-lg-none text-center mb-3 mt-4"
       }`}
     >
