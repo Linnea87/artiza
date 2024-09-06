@@ -50,6 +50,7 @@ function PostPage() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />  
+        <ArtCategories  mobile />
         <Post {...post.results[0]} setPosts={setPost} postPage />
         <Container className="m-4">
           {currentUser ? (
@@ -90,7 +91,7 @@ function PostPage() {
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
-        <ArtCategories />
+        <ArtCategories  />
       </Col>
     </Row>
   );
