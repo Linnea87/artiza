@@ -49,8 +49,7 @@ function PostsPage({ message, filter = "", selectedCategory = ""  }) {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <PopularProfiles mobile />   
-        <ArtCategories selectedCategory={selectedCategory} mobile />
+        
 
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
@@ -65,6 +64,8 @@ function PostsPage({ message, filter = "", selectedCategory = ""  }) {
             placeholder="Search art"
           />
         </Form>
+        <PopularProfiles mobile />   
+        <ArtCategories selectedCategory={selectedCategory} mobile />
 
         {hasloaded ? (
           <>
@@ -97,7 +98,7 @@ function PostsPage({ message, filter = "", selectedCategory = ""  }) {
         )}
       </Col>
       <Col  md={4} className="d-none d-lg-block p-0 p-lg-2">
-        <PopularProfiles /> <br/>
+        <PopularProfiles /> 
         <ArtCategories selectedCategory={selectedCategory} />
       </Col>
     </Row>
