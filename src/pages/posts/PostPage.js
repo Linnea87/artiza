@@ -16,6 +16,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
+import ArtCategories from "../categories/ArtCategories";
 import { useRedirect } from "../../hooks/useRedirect";
 
 function PostPage() {
@@ -89,6 +90,7 @@ function PostPage() {
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
+        <ArtCategories />
       </Col>
     </Row>
   );

@@ -15,11 +15,10 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 
 import PopularProfiles from "../profiles/PopularProfiles";
+import ArtCategories from "../categories/ArtCategories";
 
 
-
-
-function PostsPage({ message, filter = "" }) {
+function PostsPage({ message, filter = "", selectedCategory = ""  }) {
 
   const [posts, setPosts] = useState({ results: [] });
   const [hasloaded, setHasLoaded] = useState(false);
@@ -50,7 +49,8 @@ function PostsPage({ message, filter = "" }) {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <PopularProfiles mobile />    
+        <PopularProfiles mobile />   
+        <ArtCategories selectedCategory={selectedCategory} mobile />
 
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
@@ -96,9 +96,9 @@ function PostsPage({ message, filter = "" }) {
           </Container>
         )}
       </Col>
-      <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-        <PopularProfiles /> 
-        <p>Art Categories</p>
+      <Col  md={4} className="d-none d-lg-block p-0 p-lg-2">
+        <PopularProfiles /> <br/>
+        <ArtCategories selectedCategory={selectedCategory} />
       </Col>
     </Row>
   );

@@ -15,13 +15,13 @@
 }
 
 .CategoryContainer {
+  background-color: #181818d2;
   margin-top: 0px;
-  position: sticky;
-  top: 80px;
+  top: 90px;
 }
 
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
   .Header {
     text-align: right;
   }
-}
+} */

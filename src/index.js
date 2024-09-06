@@ -1,11 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from "react-router-dom";
 import { CurrentUserProvider } from "./contexts/CurrentUserContext";
 import { ProfileDataProvider } from "./contexts/ProfileDataContext";
+import { SelectedCategoryProvider } from "./contexts/SelectedCategoryContext";
 
 
 
@@ -13,7 +14,9 @@ ReactDOM.render(
     <Router>
       <CurrentUserProvider>
         <ProfileDataProvider>
+          <SelectedCategoryProvider>
             <App />
+          </SelectedCategoryProvider>
         </ProfileDataProvider>
       </CurrentUserProvider>
     </Router>,
