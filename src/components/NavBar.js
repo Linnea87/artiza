@@ -53,12 +53,12 @@ const NavBar = () => {
         <i className="fas fa-stream"></i>Feed
       </NavLink>
       <NavLink
-        className={styles.NavLink}
+        className={`${styles.NavLink}`}
         activeClassName={styles.Active}
-        aria-label="Liked"
+        aria-label="Bookmarks"
         rel="noreferrer"
-        to="/liked">
-        <i className="fas fa-heart"></i>Liked
+        to="/bookmarks">
+        <i className="fa-solid fa-bookmark mr-2"></i>Bookmarks
       </NavLink>
       <NavLink 
         className={styles.NavLink} 

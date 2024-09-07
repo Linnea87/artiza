@@ -48,13 +48,14 @@ function App() {
               />
             )}
           />
-          <Route
+           <Route
             exact
-            path="/liked"
+            path="/bookmarks"
             render={() => (
+              // message for when search brings up no results.
               <PostsPage
-                message="No results found. Adjust the search keyword or like a post."
-                filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
+                message="No posts found. Bookmark some post for later and find them here."
+                filter={`bookmarks__owner__profile=${profile_id}&ordering=-bookmarks__created_at&`}
               />
             )}
           />
@@ -65,7 +66,7 @@ function App() {
               // message for when search brings up no results.
               <PostsPage
                 message="No posts in this category."
-                filter={`category_id=${selectedCategory}&ordering=-created&`}
+                filter={`category_id=${selectedCategory}&ordering=-created_at&`}
                 selectedCategory={selectedCategory}
               />
             )}

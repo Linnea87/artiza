@@ -22,3 +22,16 @@
 .HeartOutline:hover {
     color: #f85032;
 }
+
+
+.Bookmark {
+    color: #3FADB8;
+}
+  
+.Bookmark:hover {
+    color: #3FADB8;
+}
+  
+.BookmarkOutline:hover {
+    color:  #3FADB8;
+}
