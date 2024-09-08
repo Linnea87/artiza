@@ -164,6 +164,100 @@ Feedback errors such as these from the API are expected. Here are the examples t
 
 * And 401 error when an access token has expired, it is refreshed in the background and the request eventually succeeds.
 
+[Back to top](#table-of-contents)
+
+## Technologies Used
+
+### Main Languages Used
+
+* HTML5
+
+* CSS3
+
+* Javascript
+
+* Python
+
+* SQL - Postgres
+
+### Frameworks, Libraries & Programs Used
+
+* GitPod: Served as the primary workspace for project development, facilitating the creation and modification of JSX/*
+
+* CSS files before repository submission on GitHub.
+
+* GitHub: Used as the hosting platform to store the project repository for version control.
+
+* Google Fonts: Utilized for the site fonts.
+
+* Font Awesome: Integrated to incorporate stylish icons into social links within the footer and navigation sections.
+
+* Balsamiq: Was used to create mockups of the project prior to starting.
+
+* Am I Responsive?: Ensured the responsiveness of the project across various devices, ensuring optimal user experience regardless of screen size or resolution.
+
+* Coolors.co: Used to create color palettes tailored to the project's website, ensuring harmonious design.
+
+* Favicon: To provide the code & image for the icon in the tab bar.
+
+* Canva: Utilized for creating image icons, such as uploading an image, no results found and 404 Page Not Found.
+
+* Django: Used to build the backend database that serves as an API for the front-end project.
+
+* React-Bootstrap: The styling library that has aided to the layout of the site, and which was introduced to us during the course of the program.
+
+* ReactJS: To build the components that would collectively form the front-end application.
+
+* jwt-decode: is an open standard (RFC 7519) for securely transmitting information between parties as JSON object.
+
+* NPM JS - The npm registry website used for information on npm libraries.
+
+* react-router-dom: enables you to implement dynamic routing in a web app.
+
+* react-infinite-scroll-component: a technique that automatically adds the next page as the user scrolls down through content, more content is loaded.
+
+* Popper: is used for positioning and aligning pop-up elements, such as dropdown menus, tooltips, or popovers, relative to their reference elements.
+
+## Databases Platform and Cloud Storage
+
+* ElephantSQL Postgres: database service provided by ElephantSQL for data storage.
+
+* Heroku Postgres: SQL database service provided directly by Heroku for storing data.
+
+* Cloudinary: to store images and static files in production.
+
+* Heroku: to deploy and run the application in production.
+
+[Back to top](#table-of-contents)
+
+## Components
+
+Several components have been implemented within this project that have been reused throughout the project:
+
+* axiosDefault.js: for ease of communication with the backend API.
+
+* Asset.js: dynamically renders a loading spinner (spinner), an image (src), and a message (message) throughout the site.
+
+* MoreDropdown.js: to allow users to edit/delete their Events, Posts and comments.
+
+* NavBar.js: renders a navigation bar with various icons and links based on the user's authentication status. The navigation bar also contains sign-in and sign-up links for logged-out users and profile-related links for logged-in users. Additionally, it handles sign-out functionality.
+
+* NotFound.js: renders a custom 404 error page when a user navigates to a non-existent page.
+
+### Contexts
+
+* CurrentUserContext.js: Provides hooks (useCurrentUser and useSetCurrentUser) for accessing and updating the current user's data. Confirm users logged-in status to determine what functionality is - available to the user.
+
+* ProfileDataContext.js: It provides hooks (useProfileData and useSetProfileData) for accessing and updating profile data, respectively. Offering the un/follow ability to other users across PopProf & ProfPage components.
+
+### Hooks
+
+* useClickOutsideToggle.js: manages the state of an element's visibility based on clicks outside of that element.
+
+* useRedirect.js: redirects users based on their authentication status. It sends a POST request to refresh tokens and redirects to the home page ("/") if logged in or logged out.
+
+### Utils
+* utils.js: contains helper functions for managing pagination (fetchMoreData), updating follower counts and following status (followHelper and unfollowHelper), and handling authentication tokens (setTokenTimestamp, shouldRefreshToken, removeTokenTimestamp). These functions streamline data management and authentication tasks within the Moments WalkThrough Project.
 
 ## Deployment
 
