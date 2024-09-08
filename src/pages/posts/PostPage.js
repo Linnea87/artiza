@@ -19,6 +19,7 @@ import PopularProfiles from "../profiles/PopularProfiles";
 import ArtCategories from "../categories/ArtCategories";
 import { useRedirect } from "../../hooks/useRedirect";
 
+
 function PostPage() {
   useRedirect("loggedOut");
   const { id } = useParams();
@@ -52,7 +53,7 @@ function PostPage() {
         <PopularProfiles mobile />  
         <ArtCategories  mobile />
         <Post {...post.results[0]} setPosts={setPost} postPage />
-        <Container className="m-4">
+        <Container className="m-1">
           {currentUser ? (
             <CommentCreateForm
               profile_id={currentUser.profile_id}
