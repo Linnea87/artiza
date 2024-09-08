@@ -1,4 +1,5 @@
-# <center>ARTiza - User Stories</center>
+<H1 align="center"> ARTiza - User Stories</H1>
+
 ## Epic 1 - Authentications
 
 1. As a user I can create a new account so that I can access all the features for signed up users
