@@ -8,11 +8,14 @@
     - [Current User Goals](#current-user-goals)
     - [New User Goals](#new-use-goals)
 - [User Stories](#user-stories)
-    - [User Stories and Issues](#user-stories-and-issues)
     - [User Stories List](#user-stories-list)
+    - [User Stories and Issues](#user-stories-and-issues)
+    - [Milestone List](#milestone-list)
     - [MoSCoW Prioritization](#moscow-prioritization)    
     - [GitHub Kanban Board](#github-kanban-board)   
 - [Design](#design)
+    - [Wireframes](#wireframes)
+    - [Database Scheme](#database-scheme)
     - [Colour Scheme](#colour-scheme)
     - [Typography](#typography)
 - [Features](#features)
@@ -43,15 +46,134 @@
     - [Media](#media)
     - [Acknowledgements](#acknowledgements)
 
+## UX
+
+### Site purpose:
+
+The purpose of ARTiza is to provide a dynamic online community for artists, facilitating seamless interaction among users through various features such as art sharing, liking, commenting, and following other enthusiasts
+
+### Site Goals:
+
+The primary goal of ARTiza is to create and keep an engaging and user-friendly platform where artist of all levels can connect, share their artwork and receive feedback through likes and comments. The platform aims to provide a space where both inspiration and creativity can flow, while artists can showcase their work and network with like-minded people in the art world.
+
+### Audience:
+
+The target audience for ARTiza includes artist enthusiasts of all skill levels, from amateur artist looking to improve their skills to professional artist seeking to showcase their work and network with peers.
+
+### Communication:
+
+ARTiza communicates its purpose and features through intuitive design, clear navigation and informative content. The user interface is designed to, increase user engagement and participation, be visually appealing and easy to navigate, with clear prompts that guide users to key functions such as;
+
+* posting arts, 
+* bookmarking others posts and find these under their own bookmarks, 
+* going to a specific category and finding related posts 
+* commenting on others posts
+
+### Current User Goals:
+
+* Share artwork and receive feedback from the community.
+* Connect with fellow artist and build a network of like-minded individuals.
+* Find inspirations from other fellow artists
+
+
+### New User Goals:
+
+* Easily sign up and create a profile to start engaging with the community.
+* Quickly understand the platform's features and how to navigate them.
+* Find inspiration and develope new artist skills through the platform.
+* Feel welcomed and encouraged to participate in community and discussions that the site has to offer.
+
+[Back to top](#table-of-contents)
+
+## User Stories
+
+### User Stories List:
+
+A full list of User stories can be found [HERE](https://github.com/Linnea87/artiza/blob/main/src/docs-readme/USERSTORIES.md)
+
+### User Stories and Issues
+
+Project tasks were organized into user stories, each corresponding to specific functionalities or improvements. These user stories were then translated into GitHub issues, and organized into 9 different EPICS
+
+My Issues can be found [HERE](https://github.com/Linnea87/artiza/issues?q=is%3Aopen+is%3Aissue)
+
+### Milestone List:
+
+To get an overview of what I need to do, I organized my EPICS into 9 different Milestones. In this way, I could focus on one EPIC and associated User Stories at a time
+
+My Milestones can be find [HERE](https://github.com/Linnea87/artiza/milestones)
+
+### MoSCoW Prioritization:
+
+The MoSCoW method was employed to prioritize project requirements and features based on their importance.
+
+### GitHub Kanban Board:
+
+The GitHub Kanban board was leveraged to visualize and manage the project's workflow. It facilitated the organization of tasks, from backlog to completion, providing a visual representation of the project's status. 
+
+My Kanban Board can be find [HERE](https://github.com/users/Linnea87/projects/12)
+
+[Back to top](#table-of-contents)
+
+## Design
+
+### Wireframes: 
+
+A separate document for the wireframes can be viewed here:
+
+* [For Desktop view](https://github.com/Linnea87/artiza/blob/main/src/docs-readme/wireframes/wireframes-desktop.pdf)
+* [For Mobile view](https://github.com/Linnea87/artiza/blob/main/src/docs-readme/wireframes/wireframes-mobile.pdf)
+
+### Database Schema:
+
+This has been uploaded to the Backend README, which can be found [HERE]()
+
+### Colour Scheme:
+
+I created the color scheme using the [Coolors](https://coolors.co) image picker, where I uploaded my logo and generated these colors;
+
+![Colour Scheme](src/docs-readme/colorscheme.png)
+
+[Back to top](#table-of-contents)
+
+### Typography:
+
+All fonts were obtained from the Google Fonts library. I chose the following fonts for the page:
+
+"Playfair Display", sans-serif
+
+## Testing
+
+### Bugs
+
+The errors that appeared were due to misspellings, missed commas and wrongly reversed links between the apps. 
+
+This was solved by the fact that when there was an error, I read in the terminal, and corrected what was missed such as misspellings, missed the comma and corrected so that the apps linked correctly to each other
+
+### Unfixed Bugs
+
+* No unfixed bugs found.
+
+Feedback errors such as these from the API are expected. Here are the examples that are absolutely fine:
+
+* three 401s on mount when not logged in,
+
+* 401 error when going to sign up/ sign in page, which happens when we check if we need to redirect a logged in user away from these pages.
+
+* A 401 error when providing incorrect form input such as submitting the sign in form without entering a username.
+
+* And 401 error when an access token has expired, it is refreshed in the background and the request eventually succeeds.
+
+
 ## Deployment
 
-### Running the project by using Gitpod
+### Running the project by using Gitpod:
 
 1. Go to the [project repository](https://github.com/Linnea87/artiza)
 
 2. Click the green button that says "Gitpod" and the project will now open up in Gitpod.
 
-### Deploying with Heroku
+### Deploying with Heroku:
 
 I followed the below steps using the Code Institute tutorial:
 
@@ -103,7 +225,7 @@ The site was deployed to Heroku. The steps to deploy are as follows:
     
 5. Create the project app on Heroku, and link the GitHub repository by navigating to the 'Deploy' tab.
 
-### Connecting Frontend to the API
+### Connecting Frontend to the API:
 
 1. Navigated to the Heroku app of the project pp5-drf-api, and under the Settings tab, added the following configvars:
 
@@ -130,7 +252,7 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 
 4. Deploy the project via the deploy button on Heroku.
 
-### Cloning and Forking
+### Cloning and Forking:
 
 If you want to clone or fork this project, you can do it from my [GitHub repository](https://github.com/Linnea87/artiza).
 
@@ -156,4 +278,4 @@ Make sure you are in the root directory, then run npm install
 
 In the src directory, open axiosDefaults.js and change axios.defaults.baseURL to your own API url.
 
-
+[Back to top](#table-of-contents)
