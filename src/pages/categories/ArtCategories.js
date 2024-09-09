@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 import { useSetSelectedCategory } from "../../contexts/SelectedCategoryContext";
 
-const ArtCategories = ({ selectedCategory, mobile }) => {
+const ArtCategories = ({  mobile }) => {
   const [categories, setCategories] = useState("");
 
   const setSelectedCategory = useSetSelectedCategory();

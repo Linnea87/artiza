@@ -16,9 +16,11 @@ import { fetchMoreData } from "../../utils/utils";
 
 import PopularProfiles from "../profiles/PopularProfiles";
 import ArtCategories from "../categories/ArtCategories";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 
 function PostsPage({ message, filter = "", selectedCategory = ""  }) {
+  const currentUser = useCurrentUser();
 
   const [posts, setPosts] = useState({ results: [] });
   const [hasloaded, setHasLoaded] = useState(false);
@@ -44,7 +46,7 @@ function PostsPage({ message, filter = "", selectedCategory = ""  }) {
             clearTimeout(timer)
         };
 
-    },[filter, query, pathname])
+    },[filter, query, pathname,  currentUser])
 
   return (
     <Row className="h-100">
