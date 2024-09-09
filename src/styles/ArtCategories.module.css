@@ -10,15 +10,15 @@
 }
 
 .CategoryName {
-  color: #f8f8f8;
+  color: #ffffff;
   margin: 15px;
   display: block;
 }
 
 .CategoryContainer {
   background-color: #181818d2;
-  margin-top: 0px;
-  top: 90px;
+  /* margin-top: 0px;
+  top: 90px; */
 }
 
 /* @media (max-width: 767px) {

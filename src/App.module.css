@@ -13,7 +13,7 @@
   background-color: #000000;
   padding: 10px;
   border-radius: 2px;
-  border: 1px solid #2b2b2b;
+  border: 1px solid #373737;
 }
 
 .FillerImage {
@@ -83,8 +83,8 @@ figure {
   background: #555;
 }
 
-@media (max-width: 800px) {
+/* @media (max-width: 800px) {
   .FillerImage {
     height: 90%;
   }
-}
+} */
