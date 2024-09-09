@@ -30,10 +30,7 @@ const Post = (props) => {
     updated_at,
     postPage,
     setPosts,
-    category_name,
     bookmark_id,
-    bookmarks_count,
- 
   } = props;
 
   const currentUser = useCurrentUser();
@@ -50,7 +47,7 @@ const Post = (props) => {
       await axiosRes.delete(`/posts/${id}/`);
       history.goBack();
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -66,7 +63,7 @@ const Post = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -82,7 +79,7 @@ const Post = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
  
@@ -98,7 +95,7 @@ const Post = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -144,7 +141,6 @@ const Post = (props) => {
       <Card.Body>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         {content && <Card.Text>{content}</Card.Text>}
-        {category_name && <Card.Text className="text-muted">Category: {category_name}</Card.Text>}
         <div className={styles.PostBar}>
           {is_owner ? (
             <OverlayTrigger
@@ -197,7 +193,6 @@ const Post = (props) => {
               <i className="fa-regular fa-bookmark" />
             </OverlayTrigger>
           )}
-          {bookmarks_count}
         </div>
       </Card.Body>
     </Card>

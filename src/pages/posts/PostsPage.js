@@ -19,7 +19,7 @@ import ArtCategories from "../categories/ArtCategories";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 
-function PostsPage({ message, filter = "", selectedCategory = ""  }) {
+function PostsPage({ message, filter = ""  }) {
   const currentUser = useCurrentUser();
 
   const [posts, setPosts] = useState({ results: [] });
@@ -67,7 +67,7 @@ function PostsPage({ message, filter = "", selectedCategory = ""  }) {
           />
         </Form>
         <PopularProfiles mobile />   
-        <ArtCategories selectedCategory={selectedCategory} mobile />
+        <ArtCategories mobile />
 
         {hasloaded ? (
           <>
@@ -94,14 +94,14 @@ function PostsPage({ message, filter = "", selectedCategory = ""  }) {
             }
           </>
         ):(
-          <Container mt-4>
+          <Container className="mt-4">
             <Asset spinner />
           </Container>
         )}
       </Col>
       <Col  md={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles /> 
-        <ArtCategories selectedCategory={selectedCategory} />
+        <ArtCategories  />
       </Col>
     </Row>
   );
