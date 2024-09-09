@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
 import { axiosReq } from '../../api/axiosDefaults';
 import Asset from "../../components/Asset";
@@ -50,7 +51,7 @@ const ArtCategories = ({  mobile }) => {
                 key={category.id}
                 onClick={() => handleClick(category.id)}
               >
-                 <i class="fa-solid fa-palette fa-lg"></i>
+                 <i className="fa-solid fa-palette fa-lg"></i>
                  {category.name} 
                
               </Link>  
@@ -64,7 +65,7 @@ const ArtCategories = ({  mobile }) => {
               className={styles.CategoryName}
               key={category.id}
               onClick={() => handleClick(category.id)} > 
-              <i class="fa-solid fa-palette fa-lg"></i>
+              <i className="fa-solid fa-palette fa-lg"></i>
               {category.name}
             </Link>
             )) 

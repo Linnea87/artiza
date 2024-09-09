@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import { Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -41,7 +42,9 @@ const Comment = (props) => {
         ...prevComments,
         results: prevComments.results.filter((comment) => comment.id !== id),
       }));
-    } catch (err) {}
+    } catch (err){
+      // console.log
+    }
   };
 
   return (

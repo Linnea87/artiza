@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
@@ -9,7 +10,16 @@ import { axiosRes } from "../../api/axiosDefaults";
 
 function CommentCreateForm(props) {
  
-  const {post,setPost, event, setEvent, setComments, profileImage, profile_id, evComment } = props;
+  const {
+    post,
+    setPost, 
+    event, 
+    setEvent, 
+    setComments, 
+    profileImage, 
+    profile_id,
+    evComment 
+  } = props;
   
   const [content, setContent] = useState("");
   const handleChange = (event) => {
