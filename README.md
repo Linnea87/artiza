@@ -376,6 +376,10 @@ In the src directory, open axiosDefaults.js and change axios.defaults.baseURL to
 
 ## Testing
 
+### Manual Testing:
+
+A separate document for testing can be viewed here: [TESTING.md](https://github.com/Linnea87/artiza/blob/main/src/docs-readme/TESTING.md)
+
 ### Automated Testing
 
 Automated tests for the NavBar were run on the project using the React Testing Library, following the approach demonstrated in the Moments Walkthrough Project.
