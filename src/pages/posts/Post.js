@@ -13,8 +13,6 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-
-
 const Post = (props) => {
   const {
     id,
@@ -37,7 +35,6 @@ const Post = (props) => {
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
 
-
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
   };
@@ -58,7 +55,11 @@ const Post = (props) => {
         ...prevPosts,
         results: prevPosts.results.map((post) => {
           return post.id === id
-            ? { ...post, bookmarks_count: post.bookmarks_count + 1, bookmark_id: data.id }
+            ? {
+                ...post,
+                bookmarks_count: post.bookmarks_count + 1,
+                bookmark_id: data.id,
+              }
             : post;
         }),
       }));
@@ -74,7 +75,11 @@ const Post = (props) => {
         ...prevPosts,
         results: prevPosts.results.map((post) => {
           return post.id === id
-            ? { ...post, bookmarks_count: post.bookmarks_count - 1, bookmark_id: null }
+            ? {
+                ...post,
+                bookmarks_count: post.bookmarks_count - 1,
+                bookmark_id: null,
+              }
             : post;
         }),
       }));
@@ -82,7 +87,7 @@ const Post = (props) => {
       // console.log(err);
     }
   };
- 
+
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/likes/", { post: id });
@@ -115,7 +120,6 @@ const Post = (props) => {
     }
   };
 
-
   return (
     <Card className={styles.Post}>
       <Card.Body>
@@ -128,8 +132,8 @@ const Post = (props) => {
             <span>{updated_at}</span>
             {is_owner && postPage && (
               <MoreDropdown
-              handleEdit={handleEdit}
-              handleDelete={handleDelete}
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
               />
             )}
           </div>
@@ -183,7 +187,9 @@ const Post = (props) => {
             </span>
           ) : currentUser ? (
             <span onClick={handleBookmark}>
-              <i className={`fa-regular fa-bookmark ${styles.BookmarkOutline}`} />
+              <i
+                className={`fa-regular fa-bookmark ${styles.BookmarkOutline}`}
+              />
             </span>
           ) : (
             <OverlayTrigger
