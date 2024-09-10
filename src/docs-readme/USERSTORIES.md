@@ -83,8 +83,7 @@
 2. As a user I can delete a post i have bookmarked so that I can control which bookmarked posts i don't want anymore
 
 
-
-
+[Return to README](https://github.com/Linnea87/artiza/blob/main/README.md)
 
 
 

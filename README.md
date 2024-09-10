@@ -380,14 +380,13 @@ In the src directory, open axiosDefaults.js and change axios.defaults.baseURL to
 
 Automated tests for the NavBar were run on the project using the React Testing Library, following the approach demonstrated in the Moments Walkthrough Project.
 
-    <details> 
-    <summary>  React Library Test NavBar Image</summary>
+<details> 
+<summary>React Library Test NavBar Image</summary>
 
-    ![]()
-    </details>
-    <br>    
+![](src/docs-readme/images/automated-test.png)
+</details>
   
-
+  
 ### Validator Testing:
 
 1. CSS files pass through the [W3C Jigsaw](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fartiza-e7a78d9d5179.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=sv) validator with no issues found.
