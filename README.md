@@ -132,7 +132,7 @@ This has been uploaded to the Backend README, which can be found [HERE]()
 
 I created the color scheme using the [Coolors](https://coolors.co) image picker, where I uploaded my logo and generated these colors;
 
-![Colour Scheme](src/docs-readme/colorscheme.png)
+![Colour Scheme](src/docs-readme/images/colorscheme.png)
 
 [Back to top](#table-of-contents)
 
@@ -373,3 +373,61 @@ Make sure you are in the root directory, then run npm install
 In the src directory, open axiosDefaults.js and change axios.defaults.baseURL to your own API url.
 
 [Back to top](#table-of-contents)
+
+## Testing
+
+### Automated Testing
+
+Automated tests for the NavBar were run on the project using the React Testing Library, following the approach demonstrated in the Moments Walkthrough Project.
+
+    <details> 
+    <summary>  React Library Test NavBar Image</summary>
+
+    ![]()
+    </details>
+    <br>    
+  
+
+### Validator Testing:
+
+1. CSS files pass through the [W3C Jigsaw](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fartiza-e7a78d9d5179.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=sv) validator with no issues found.
+
+    <details> 
+    <summary> CSS Validation Image</summary>
+
+    ![](src/docs-readme/images/css-validation.png)
+    </details>
+    <br>
+
+2. All HTML files passed through the [W3C Markup](https://validator.w3.org/nu/?doc=https%3A%2F%2Fartiza-e7a78d9d5179.herokuapp.com%2F) Validator with no errors.
+
+    <details>
+    <summary>MarkUp Validator Image</summary>
+
+    ![](src/docs-readme/images/html-validator.png)
+    </details>
+    <br>
+
+3. All JSX code pass through `npx eslint src/**/*.js` [ESLint](https://eslint.org/). All console.log(err); have been left in place and commented out, as it was suggested in the "Moments" Walkthrough Project.
+
+    <details>
+    <summary>ESLint Terminal Results Image</summary>
+
+    ![](src/docs-readme/images/eslint.png)
+    </details>
+    <br>
+        
+
+4. Lighthouse
+
+  
+
+    <details>
+    <summary>Lighthouse Validator Image</summary>
+
+    ![]()
+    </details>
+    <br>
+
+[Back to top](#table-of-contents)
+
