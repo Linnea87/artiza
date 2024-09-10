@@ -16,13 +16,11 @@
 }
 
 .CategoryContainer {
-  background-color: #181818d2;
-  /* margin-top: 0px;
-  top: 90px; */
-}
+  background-color:  #1d1d1d;
+  margin-top: 2rem;
+  padding-bottom: 10px;
+  border-radius: 1%;
 
-/* @media (max-width: 767px) {
-  .Header {
-    text-align: right;
-  }
-} */
+} 
+
+
