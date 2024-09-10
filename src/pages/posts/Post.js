@@ -29,6 +29,7 @@ const Post = (props) => {
     postPage,
     setPosts,
     bookmark_id,
+    bookmarks_count,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -198,7 +199,9 @@ const Post = (props) => {
             >
               <i className="fa-regular fa-bookmark" />
             </OverlayTrigger>
+           
           )}
+          {bookmarks_count}
         </div>
       </Card.Body>
     </Card>
