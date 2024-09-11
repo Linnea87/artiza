@@ -201,6 +201,7 @@ function PostCreateForm() {
                 accept="image/*"
                 onChange={handleChangeImage}
                 ref={imageInput}
+                alt="post image"
                 required
               />
             </Form.Group>

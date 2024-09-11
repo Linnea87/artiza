@@ -141,6 +141,7 @@ const ProfileEditForm = () => {
                 id="image-upload"
                 ref={imageFile}
                 accept="image/*"
+                alt="profile image"
                 onChange={(e) => {
                   if (e.target.files.length) {
                     setProfileData({
