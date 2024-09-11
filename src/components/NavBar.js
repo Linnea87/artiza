@@ -38,7 +38,7 @@ const NavBar = () => {
       aria-label="AddPost"
       rel="noreferrer"
       to="/posts/create">
-      <i className="fas fa-plus-square"></i>Add post
+      <i  alt="add-post-icon" className="fas fa-plus-square"></i>Add post
     </NavLink>
   );
 
@@ -50,7 +50,7 @@ const NavBar = () => {
         aria-label="Feed"
         rel="noreferrer"
         to="/feed">
-        <i className="fas fa-stream"></i>Feed
+        <i  alt="feed-icon" className="fas fa-stream"></i>Feed
       </NavLink>
       <NavLink
         className={`${styles.NavLink}`}
@@ -58,7 +58,7 @@ const NavBar = () => {
         aria-label="Bookmarks"
         rel="noreferrer"
         to="/bookmarks">
-        <i className="fa-solid fa-bookmark mr-2"></i>Bookmarks
+        <i  alt="bookmark-icon" className="fa-solid fa-bookmark mr-2"></i>Bookmarks
       </NavLink>
       <NavLink 
         className={styles.NavLink} 
@@ -66,7 +66,7 @@ const NavBar = () => {
         rel="noreferrer"
         to="/" 
         onClick={handleSignOut}>
-        <i className="fas fa-sign-out-alt"></i>Sign out
+        <i  alt="signout-icon" className="fas fa-sign-out-alt"></i>Sign out
       </NavLink>
       <NavLink
         className={styles.NavLink}
@@ -86,14 +86,14 @@ const NavBar = () => {
         aria-label="Sign In"
         rel="noreferrer"
         to="/signin">
-        <i className="fas fa-sign-in-alt"></i>Sign in
+        <i  alt="signin-icon" className="fas fa-sign-in-alt"></i>Sign in
       </NavLink>
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         aria-label="Sign Up"
         to="/signup">
-        <i className="fas fa-user-plus"></i>Sign up
+        <i  alt="signup-icon" className="fas fa-user-plus"></i>Sign up
       </NavLink>
     </>
   );
@@ -125,7 +125,7 @@ const NavBar = () => {
               aria-label="Home page"
               rel="noreferrer"
               to="/">
-              <i className="fas fa-home"></i>Home
+              <i  alt="home-icon" className="fas fa-home"></i>Home
             </NavLink>
 
             {currentUser ? loggedInIcons : loggedOutIcons}

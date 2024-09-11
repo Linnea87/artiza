@@ -152,27 +152,27 @@ const Post = (props) => {
               placement="top"
               overlay={<Tooltip>You can't like your own post!</Tooltip>}
             >
-              <i className="far fa-heart" />
+              <i  alt="like-icon" className="far fa-heart" />
             </OverlayTrigger>
           ) : like_id ? (
             <span onClick={handleUnlike}>
-              <i className={`fas fa-heart ${styles.Heart}`} />
+              <i  alt="like-icon" className={`fas fa-heart ${styles.Heart}`} />
             </span>
           ) : currentUser ? (
             <span onClick={handleLike}>
-              <i className={`far fa-heart ${styles.HeartOutline}`} />
+              <i  alt="like-icon" className={`far fa-heart ${styles.HeartOutline}`} />
             </span>
           ) : (
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip>Log in to like posts!</Tooltip>}
             >
-              <i className="far fa-heart" />
+              <i  alt="like-icon" className="far fa-heart" />
             </OverlayTrigger>
           )}
           {likes_count}
           <Link to={`/posts/${id}`}>
-            <i className="far fa-comments" />
+            <i  alt="comment-icon" className="far fa-comments" />
           </Link>
           {comments_count}
           {is_owner ? (
@@ -189,7 +189,7 @@ const Post = (props) => {
           ) : currentUser ? (
             <span onClick={handleBookmark}>
               <i
-                className={`fa-regular fa-bookmark ${styles.BookmarkOutline}`}
+                className={`fa-regular fa-bookmark ${styles.BookmarkOutline}`} 
               />
             </span>
           ) : (
@@ -197,7 +197,7 @@ const Post = (props) => {
               placement="top"
               overlay={<Tooltip>Log in to bookmark posts!</Tooltip>}
             >
-              <i className="fa-regular fa-bookmark" />
+              <i alt="bookmark-icon" className="fa-regular fa-bookmark" />
             </OverlayTrigger>
            
           )}
