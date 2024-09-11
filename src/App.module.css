@@ -13,7 +13,7 @@
   background-color: #000000;
   padding: 10px;
   border-radius: 2px;
-  border: 1px solid #343434;;
+  border: 1px solid #343434;
 }
 
 .FillerImage {
@@ -39,11 +39,11 @@ a {
 
 a:hover {
   text-decoration: none;
-  color:  #3FADB8;
+  color: #3fadb8;
 }
 
 a:hover i {
-  color:   #3FADB8;
+  color: #3fadb8;
   transition: color ease-in-out 0.3s;
 }
 
@@ -61,7 +61,7 @@ i {
 i:hover {
   cursor: pointer;
   transition: color ease-in-out 0.3s;
-  color: #3FADB8;
+  color: #3fadb8;
 }
 
 figure {
@@ -82,4 +82,3 @@ figure {
 *::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-

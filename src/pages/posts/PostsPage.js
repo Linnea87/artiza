@@ -18,8 +18,7 @@ import PopularProfiles from "../profiles/PopularProfiles";
 import ArtCategories from "../categories/ArtCategories";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-
-function PostsPage({ message, filter = ""  }) {
+function PostsPage({ message, filter = "" }) {
   const currentUser = useCurrentUser();
 
   const [posts, setPosts] = useState({ results: [] });
@@ -27,32 +26,29 @@ function PostsPage({ message, filter = ""  }) {
   const { pathname } = useLocation();
   const [query, setQuery] = useState("");
 
-    useEffect(() => {
-        const fetchPosts = async () => {
-            try {
-                const {data} = await axiosReq.get(`/posts/?${filter}search=${query}`)
-                setPosts(data)
-                setHasLoaded(true)
-            } catch (err) {
-                // console.log(err)
-            };
-        };
-        setHasLoaded(false)
-        // timer to reduce amount of API requests in searchbar - waits 1 sec before making request
-        const timer = setTimeout(() => {
-            fetchPosts();
-        }, 1000)
-        return () => {
-            clearTimeout(timer)
-        };
-
-    },[filter, query, pathname,  currentUser])
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
+        setPosts(data);
+        setHasLoaded(true);
+      } catch (err) {
+        // console.log(err)
+      }
+    };
+    setHasLoaded(false);
+    // timer to reduce amount of API requests in searchbar - waits 1 sec before making request
+    const timer = setTimeout(() => {
+      fetchPosts();
+    }, 1000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [filter, query, pathname, currentUser]);
 
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        
-
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
           className={styles.SearchBar}
@@ -66,47 +62,39 @@ function PostsPage({ message, filter = ""  }) {
             placeholder="Search art"
           />
         </Form>
-        <PopularProfiles mobile />   
+        <PopularProfiles mobile />
         <ArtCategories mobile />
 
         {hasloaded ? (
           <>
             {posts.results.length ? (
               <InfiniteScroll
-                children = {
-                  posts.results.map((post) => (
-                    <Post
-                      key={post.id} 
-                      {...post} 
-                      setPosts={setPosts} 
-                    />
-                  ))
-                }
+                children={posts.results.map((post) => (
+                  <Post key={post.id} {...post} setPosts={setPosts} />
+                ))}
                 dataLength={posts.results.length}
                 loader={<Asset spinner />}
                 hasMore={!!posts.next}
                 next={() => fetchMoreData(posts, setPosts)}
               />
-              ):
-                <Container>
-                  <Asset src={NoResults} message={message} />
-                </Container>
-            }
+            ) : (
+              <Container>
+                <Asset src={NoResults} message={message} />
+              </Container>
+            )}
           </>
-        ):(
+        ) : (
           <Container className="mt-4">
             <Asset spinner />
           </Container>
         )}
       </Col>
-      <Col  md={4} className="d-none d-lg-block p-0 p-lg-2">
-        <PopularProfiles /> 
-        <ArtCategories  />
+      <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
+        <PopularProfiles />
+        <ArtCategories />
       </Col>
     </Row>
   );
-};
+}
 
 export default PostsPage;
-
-

@@ -19,12 +19,11 @@ import PopularProfiles from "../profiles/PopularProfiles";
 import ArtCategories from "../categories/ArtCategories";
 import { useRedirect } from "../../hooks/useRedirect";
 
-
 function PostPage() {
   useRedirect("loggedOut");
   const { id } = useParams();
   const [post, setPost] = useState({ results: [] });
-  
+
   const currentUser = useCurrentUser();
 
   const profile_image = currentUser?.profile_image;
@@ -50,8 +49,8 @@ function PostPage() {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <PopularProfiles mobile />  
-        <ArtCategories  mobile />
+        <PopularProfiles mobile />
+        <ArtCategories mobile />
         <Post {...post.results[0]} setPosts={setPost} postPage />
         <Container className="m-1">
           {currentUser ? (
@@ -67,22 +66,21 @@ function PostPage() {
           ) : null}
 
           {comments.results.length ? (
-           <InfiniteScroll
-            children={comments.results.map((comment) => (
-              <Comment
-                key={comment.id}
-                {...comment}
-                post={id}
-                setPost={setPost}
-                setComments={setComments}
-              />
-            ))}
-            dataLength={comments.results.length}
-            loader={<Asset spinner />}
-            hasMore={!!comments.next}
-            next={() => fetchMoreData(comments, setComments)}
-          />
-
+            <InfiniteScroll
+              children={comments.results.map((comment) => (
+                <Comment
+                  key={comment.id}
+                  {...comment}
+                  post={id}
+                  setPost={setPost}
+                  setComments={setComments}
+                />
+              ))}
+              dataLength={comments.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!comments.next}
+              next={() => fetchMoreData(comments, setComments)}
+            />
           ) : currentUser ? (
             <span>No comments yet, be the first to comment!</span>
           ) : (

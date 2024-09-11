@@ -1,4 +1,4 @@
-import React, {useRef,  useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -6,7 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
-import  Image  from "react-bootstrap/Image";
+import Image from "react-bootstrap/Image";
 
 import Upload from "../../assets/upload.png";
 import Asset from "../../components/Asset";
@@ -14,14 +14,12 @@ import { useRedirect } from "../../hooks/useRedirect";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useHistory } from "react-router";
 
-
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
-
 function PostCreateForm() {
-  useRedirect('loggedOut')
+  useRedirect("loggedOut");
 
   const [errors, setErrors] = useState({});
 
@@ -31,14 +29,14 @@ function PostCreateForm() {
     image: "",
     category: "",
   });
-  
+
   const { title, content, image, category } = postData;
 
   const imageInput = useRef(null);
   const history = useHistory();
 
-  const [categories, setCategories] = useState({ results: []});
-  
+  const [categories, setCategories] = useState({ results: [] });
+
   const handleChange = (event) => {
     setPostData({
       ...postData,
@@ -49,13 +47,13 @@ function PostCreateForm() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const {data } = await axiosReq.get(`/categories`)
-        setCategories( data)
+        const { data } = await axiosReq.get(`/categories`);
+        setCategories(data);
       } catch (err) {
-          // console.log(err)
-      };
+        // console.log(err)
+      }
     };
-    fetchCategories()
+    fetchCategories();
   }, []);
 
   const handleChangeImage = (event) => {
@@ -68,8 +66,6 @@ function PostCreateForm() {
     }
   };
 
- 
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -78,8 +74,7 @@ function PostCreateForm() {
     formData.append("content", content);
     formData.append("image", imageInput.current.files[0]);
     formData.append("category", category);
-  
-   
+
     try {
       const { data } = await axiosReq.post("/posts/", formData);
       history.push(`/posts/${data.id}`);
@@ -141,14 +136,13 @@ function PostCreateForm() {
             </option>
           ))}
         </Form.Control>
-      </Form.Group> 
+      </Form.Group>
 
       {errors?.category?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
       ))}
-      
 
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
@@ -160,7 +154,7 @@ function PostCreateForm() {
         create
       </Button>
     </div>
-  )
+  );
 
   return (
     <Form onSubmit={handleSubmit}>

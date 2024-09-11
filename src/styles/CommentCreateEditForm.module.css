@@ -1,23 +1,23 @@
 .Form {
-    border: none;
-    border-bottom: 2px #3FADB8 solid;
+  border: none;
+  border-bottom: 2px #3fadb8 solid;
 }
-  
+
 .Button {
-    border: none;
-    background-color: #3FADB8;
-    transition: color ease-in-out 0.3s;
-    color: aliceblue;
-    border-radius: 100px;
-    padding: 4px 10px;
-    min-width: 75px;
-    margin: 5px;
+  border: none;
+  background-color: #3fadb8;
+  transition: color ease-in-out 0.3s;
+  color: aliceblue;
+  border-radius: 100px;
+  padding: 4px 10px;
+  min-width: 75px;
+  margin: 5px;
 }
-  
+
 .Button:hover {
-    opacity: 0.8;
-    border-color: transparent;
-    cursor: pointer;
-    color: #3FADB8;
-    background-color: #ffffff;
+  opacity: 0.8;
+  border-color: transparent;
+  cursor: pointer;
+  color: #3fadb8;
+  background-color: #ffffff;
 }

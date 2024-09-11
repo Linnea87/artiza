@@ -7,7 +7,7 @@ import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import PostCreateForm from "./pages/posts/PostCreateForm";
 import PostPage from "./pages/posts/PostPage";
-import PostsPage from "./pages/posts/PostsPage"
+import PostsPage from "./pages/posts/PostsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import { useSelectedCategory } from "./contexts/SelectedCategoryContext";
 import PostEditForm from "./pages/posts/PostEditForm";
@@ -18,25 +18,21 @@ import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import NotFound from "./components/NotFound";
 
 function App() {
-
   const currentUser = useCurrentUser();
   const selectedCategory = useSelectedCategory();
   const profile_id = currentUser?.profile_id || "";
-
 
   return (
     <div className={styles.App}>
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
-          <Route 
-            exact 
-            path="/" 
+          <Route
+            exact
+            path="/"
             render={() => (
-              <PostsPage 
-                message="No results found. Adjust the search keyword." 
-              />
-            )} 
+              <PostsPage message="No results found. Adjust the search keyword." />
+            )}
           />
           <Route
             exact
@@ -48,7 +44,7 @@ function App() {
               />
             )}
           />
-           <Route
+          <Route
             exact
             path="/bookmarks"
             render={() => (
@@ -77,9 +73,21 @@ function App() {
           <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
-          <Route exact path="/profiles/:id/edit/username" render={() => <UsernameForm />} />
-          <Route exact path="/profiles/:id/edit/password" render={() => <UserPasswordForm />} />
-          <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />} />
+          <Route
+            exact
+            path="/profiles/:id/edit/username"
+            render={() => <UsernameForm />}
+          />
+          <Route
+            exact
+            path="/profiles/:id/edit/password"
+            render={() => <UserPasswordForm />}
+          />
+          <Route
+            exact
+            path="/profiles/:id/edit"
+            render={() => <ProfileEditForm />}
+          />
           <Route render={() => <NotFound />} />
         </Switch>
       </Container>

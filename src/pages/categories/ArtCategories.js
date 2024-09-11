@@ -1,16 +1,15 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
-import { axiosReq } from '../../api/axiosDefaults';
+import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
-import Container  from "react-bootstrap/Container";
+import Container from "react-bootstrap/Container";
 import styles from "../../styles/ArtCategories.module.css";
 
 import { Link } from "react-router-dom";
 
 import { useSetSelectedCategory } from "../../contexts/SelectedCategoryContext";
 
-
-const ArtCategories = ({  mobile }) => {
+const ArtCategories = ({ mobile }) => {
   const [categories, setCategories] = useState("");
 
   const setSelectedCategory = useSetSelectedCategory();
@@ -34,7 +33,8 @@ const ArtCategories = ({  mobile }) => {
   };
 
   return (
-    <Container className={` ${styles.CategoryContainer} ${
+    <Container
+      className={` ${styles.CategoryContainer} ${
         mobile && "d-lg-none text-center mb-3 mt-4"
       }`}
     >
@@ -44,32 +44,30 @@ const ArtCategories = ({  mobile }) => {
           <p className={styles.Header}>Art Categories</p>
           {mobile ? (
             <div className="d-flex justify-content-around">
-              {categories.results.slice(0,4)?.map((category) => (
-              <Link 
-              
+              {categories.results.slice(0, 4)?.map((category) => (
+                <Link
+                  to={`/categories/${category.id}/posts`}
+                  className={styles.CategoryName}
+                  key={category.id}
+                  onClick={() => handleClick(category.id)}
+                >
+                  <i className="fa-solid fa-palette fa-lg"></i>
+                  {category.name}
+                </Link>
+              ))}
+            </div>
+          ) : (
+            categories.results?.map((category) => (
+              <Link
                 to={`/categories/${category.id}/posts`}
                 className={styles.CategoryName}
                 key={category.id}
-                onClick={() => handleClick(category.id)} 
+                onClick={() => handleClick(category.id)}
               >
-                 <i className="fa-solid fa-palette fa-lg"></i>
-                 {category.name} 
-               
+                <i className="fa-solid fa-palette fa-lg"></i>
+                {category.name}
               </Link>
-              ))}  
-            </div>
-           
-          ) : (
-            categories.results?.map((category) => (
-            <Link
-              to={`/categories/${category.id}/posts`}
-              className={styles.CategoryName}
-              key={category.id}
-              onClick={() => handleClick(category.id)} > 
-              <i className="fa-solid fa-palette fa-lg"></i>
-              {category.name}
-            </Link>
-            )) 
+            ))
           )}
         </>
       ) : (

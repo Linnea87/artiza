@@ -51,7 +51,6 @@ export const CurrentUserProvider = ({ children }) => {
       }
     );
 
-
     axiosRes.interceptors.response.use(
       (response) => response,
       async (err) => {

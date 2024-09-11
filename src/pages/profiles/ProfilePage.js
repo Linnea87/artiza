@@ -16,7 +16,10 @@ import PopularProfiles from "./PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
-import {useProfileData, useSetProfileData,} from "../../contexts/ProfileDataContext";
+import {
+  useProfileData,
+  useSetProfileData,
+} from "../../contexts/ProfileDataContext";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import NoPosts from "../../assets/no-posts.png";
@@ -31,7 +34,7 @@ function ProfilePage() {
   const currentUser = useCurrentUser();
   const { id } = useParams();
 
-  const {setProfileData, handleFollow, handleUnfollow} = useSetProfileData();
+  const { setProfileData, handleFollow, handleUnfollow } = useSetProfileData();
   const { pageProfile } = useProfileData();
 
   const [profile] = pageProfile.results;
@@ -45,7 +48,7 @@ function ProfilePage() {
             axiosReq.get(`/profiles/${id}/`),
             axiosReq.get(`/posts/?owner__profile=${id}`),
           ]);
-          setProfileData((prevState) => ({
+        setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
@@ -61,53 +64,55 @@ function ProfilePage() {
   const mainProfile = (
     <>
       {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
-        <Row noGutters className="px-3 text-center">
-          <Col lg={3} className="text-lg-left">
-            <Image
-              className={styles.ProfileImage}
-              roundedCircle
-              src={profile?.image}
-              alt="profile image"
-            />
-          </Col>
-          <Col lg={6}>
-            <h3 className="m-2">{profile?.owner}</h3>
-            <Row className="justify-content-center no-gutters">
-              <Col xs={3} className="my-2 m-2">
-                <div>{profile?.posts_count}</div>
-                <div>posts</div>
-              </Col>
-              <Col xs={3} className="my-2 m-2">
-                <div>{profile?.followers_count}</div>
-                <div>followers</div>
-              </Col>
-              <Col xs={3} className="my-2 m-2">
-                <div>{profile?.following_count}</div>
-                <div>following</div>
-              </Col>
-            </Row>
-          </Col>
-          <Col lg={3} className="text-lg-right">
-            {currentUser &&
-              !is_owner &&
-              (profile?.following_id ? (
-                <Button
-                  className={`${btnStyles.Button} ${btnStyles.BlueOutline}`}
-                  onClick={() => handleUnfollow(profile)}
-                >
-                  unfollow
-                </Button>
-              ) : (
-                <Button
-                  className={`${btnStyles.Button} ${btnStyles.Blue}`}
-                  onClick={() => handleFollow(profile)}
-                >
-                  follow
-                </Button>
-              ))}
-          </Col>
-          {profile?.content && <Col className="text-lg-left p-3">{profile.content}</Col>}
-        </Row>
+      <Row noGutters className="px-3 text-center">
+        <Col lg={3} className="text-lg-left">
+          <Image
+            className={styles.ProfileImage}
+            roundedCircle
+            src={profile?.image}
+            alt="profile image"
+          />
+        </Col>
+        <Col lg={6}>
+          <h3 className="m-2">{profile?.owner}</h3>
+          <Row className="justify-content-center no-gutters">
+            <Col xs={3} className="my-2 m-2">
+              <div>{profile?.posts_count}</div>
+              <div>posts</div>
+            </Col>
+            <Col xs={3} className="my-2 m-2">
+              <div>{profile?.followers_count}</div>
+              <div>followers</div>
+            </Col>
+            <Col xs={3} className="my-2 m-2">
+              <div>{profile?.following_count}</div>
+              <div>following</div>
+            </Col>
+          </Row>
+        </Col>
+        <Col lg={3} className="text-lg-right">
+          {currentUser &&
+            !is_owner &&
+            (profile?.following_id ? (
+              <Button
+                className={`${btnStyles.Button} ${btnStyles.BlueOutline}`}
+                onClick={() => handleUnfollow(profile)}
+              >
+                unfollow
+              </Button>
+            ) : (
+              <Button
+                className={`${btnStyles.Button} ${btnStyles.Blue}`}
+                onClick={() => handleFollow(profile)}
+              >
+                follow
+              </Button>
+            ))}
+        </Col>
+        {profile?.content && (
+          <Col className="text-lg-left p-3">{profile.content}</Col>
+        )}
+      </Row>
     </>
   );
 
@@ -123,7 +128,7 @@ function ProfilePage() {
           hasMore={!!profilePosts.next}
           next={() => fetchMoreData(profilePosts, setProfilePosts)}
         >
-          <Row noGutters >
+          <Row noGutters>
             {profilePosts.results.map((post) => (
               <Col key={post.id} lg={4} md={4} xs={6}>
                 <ProfilePost {...post} setPosts={setProfilePosts} />

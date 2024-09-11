@@ -1,18 +1,17 @@
 .NavBar {
-    border-bottom: 1px solid #343434;
-    background-color: black;
+  border-bottom: 1px solid #343434;
+  background-color: black;
 }
 
 .NavLink {
-    padding: 5px;
+  padding: 5px;
 }
-  
+
 .Active i {
-    color: #3FADB8;
-} 
+  color: #3fadb8;
+}
 
 .Logo {
-
-    height: 55px;
-    max-width: 100px;
+  height: 55px;
+  max-width: 100px;
 }

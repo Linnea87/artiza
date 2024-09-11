@@ -15,10 +15,7 @@ import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
-
 function PostEditForm() {
-
-
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
@@ -34,7 +31,7 @@ function PostEditForm() {
   const history = useHistory();
   const { id } = useParams();
 
-  const [categories, setCategories] = useState({ results: []});
+  const [categories, setCategories] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
@@ -42,7 +39,9 @@ function PostEditForm() {
         const { data } = await axiosReq.get(`/posts/${id}/`);
         const { title, content, image, category, is_owner } = data;
 
-        is_owner ? setPostData({ title, content, image, category }) : history.push("/");
+        is_owner
+          ? setPostData({ title, content, image, category })
+          : history.push("/");
       } catch (err) {
         // console.log(err);
       }
@@ -61,17 +60,15 @@ function PostEditForm() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const {data } = await axiosReq.get(`/categories`)
-        setCategories( data)
+        const { data } = await axiosReq.get(`/categories`);
+        setCategories(data);
       } catch (err) {
-          // console.log(err)
-      };
+        // console.log(err)
+      }
     };
-    fetchCategories()
+    fetchCategories();
   }, []);
 
-
-   
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -79,9 +76,8 @@ function PostEditForm() {
         ...postData,
         image: URL.createObjectURL(event.target.files[0]),
       });
-    };
+    }
   };
-
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -91,17 +87,17 @@ function PostEditForm() {
     formData.append("content", content);
     if (imageInput?.current?.files[0]) {
       formData.append("image", imageInput.current.files[0]);
-    };
+    }
     formData.append("category", category);
-   
+
     try {
       await axiosReq.put(`/posts/${id}/`, formData);
       history.push(`/posts/${id}`);
     } catch (err) {
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
-      };
-    };
+      }
+    }
   };
 
   const textFields = (
@@ -131,7 +127,6 @@ function PostEditForm() {
           name="content"
           value={content}
           onChange={handleChange}
-          
         />
       </Form.Group>
 
@@ -162,7 +157,7 @@ function PostEditForm() {
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
-      ))}  
+      ))}
 
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
@@ -218,6 +213,6 @@ function PostEditForm() {
       </Row>
     </Form>
   );
-};
+}
 
 export default PostEditForm;

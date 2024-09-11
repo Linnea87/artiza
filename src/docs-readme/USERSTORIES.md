@@ -10,7 +10,6 @@
 
 4. As a Site User I can remain logged in for some time, or until I log out so that I have a good experience
 
-
 ## Epic 2 - Navigation
 
 1. As a user I can view a navbar from every page so that I can navigate easily between the applications pages
@@ -18,7 +17,6 @@
 2. As a user I can navigate through pages quickly so that I can view content seamlessly without page refresh
 
 3. As a Site User I can scroll infinitely so that I never have to click next page to see more posts
-
 
 ## Epic 3 - Posts
 
@@ -28,7 +26,6 @@
 
 3. As a Site User I can delete my own post so that I can remove it if I want to
 
-
 ## Epic 4 - View posts
 
 1. As a Site User I can search for posts so that I can find content I'm looking for
@@ -37,13 +34,11 @@
 
 3. As a Site User I can view a single post so that I can interact with it
 
-
 ## Epic 5 - Likes
 
 1. As a Site User I can like a post so that I can show appreciation
 
 2. As a Site User I can view posts I have liked so that I can find my way back to them easily
-
 
 ## Epic 6 - Comments
 
@@ -54,7 +49,6 @@
 3. As a Site User I can edit my own comment so that I can fix or update my existing comment.
 
 4. As a Site User I can delete my own comments so that I can remove them if I want to
-
 
 ## Epic 7 - Profiles
 
@@ -82,15 +76,4 @@
 
 2. As a user I can delete a post i have bookmarked so that I can control which bookmarked posts i don't want anymore
 
-
 [Return to README](https://github.com/Linnea87/artiza/blob/main/README.md)
-
-
-
-
-
-
-
-
-
-

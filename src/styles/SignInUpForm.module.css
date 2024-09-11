@@ -18,7 +18,6 @@
   align-items: center;
 }
 
-
 .Form {
   margin-bottom: 16px;
   text-align: center;
@@ -36,8 +35,6 @@
   text-align: center;
   padding: 10px;
 }
-
-
 
 .Header {
   font-style: normal;
@@ -65,7 +62,6 @@
   padding: 30px 10px;
 }
 
-
 @media (max-width: 800px) {
   .Overlay {
     flex-direction: column;
@@ -74,5 +70,4 @@
   .Form {
     margin-bottom: 24px;
   }
-  
 }

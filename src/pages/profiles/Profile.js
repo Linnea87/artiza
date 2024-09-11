@@ -1,4 +1,3 @@
-
 import React from "react";
 import styles from "../../styles/Profile.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -14,7 +13,7 @@ const Profile = (props) => {
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
-  
+
   const { handleFollow, handleUnfollow } = useSetProfileData();
 
   return (

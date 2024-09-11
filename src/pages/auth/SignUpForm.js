@@ -20,7 +20,7 @@ import { useRedirect } from "../../hooks/useRedirect";
 
 const SignUpForm = () => {
   useRedirect("loggedIn");
-  
+
   const [signUpData, setSignUpData] = useState({
     username: "",
     password1: "",
@@ -54,7 +54,8 @@ const SignUpForm = () => {
     <div className={styles.FullScreen}>
       <div className={`${styles.Row} ${styles.Overlay}`}>
         <Col>
-          <Image className={`${appStyles.FillerImage}`}
+          <Image
+            className={`${appStyles.FillerImage}`}
             src={signupimg}
             alt="signout image"
           />

@@ -5,10 +5,11 @@ export const SelectedCategoryContext = createContext();
 export const SetSelectedCategoryContext = createContext();
 
 export const useSelectedCategory = () => useContext(SelectedCategoryContext);
-export const useSetSelectedCategory = () => useContext(SetSelectedCategoryContext);
+export const useSetSelectedCategory = () =>
+  useContext(SetSelectedCategoryContext);
 
 export const SelectedCategoryProvider = ({ children }) => {
-    // manually inputing a nonexistant id in the url will default to the first category created
+  // manually inputing a nonexistant id in the url will default to the first category created
   const [selectedCategory, setSelectedCategory] = useState(1);
 
   return (

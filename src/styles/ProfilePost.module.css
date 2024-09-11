@@ -1,16 +1,15 @@
 .Post {
-    background-color: #000000;
-    margin-bottom: 0;
-    text-align: center;
-    width:60%;
-    max-height: auto;
-    object-fit: contain;
-    
+  background-color: #000000;
+  margin-bottom: 0;
+  text-align: center;
+  width: 60%;
+  max-height: auto;
+  object-fit: contain;
 }
 
 @media screen and (max-width: 991px) {
-    .Post {
-      width: 50%;
-      max-height: auto ;
-    }
+  .Post {
+    width: 50%;
+    max-height: auto;
+  }
 }

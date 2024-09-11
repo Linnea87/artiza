@@ -1,37 +1,36 @@
 .Post {
-    background-color:#000000;
-    border: 1px solid #4f4f4f;
-    border-radius: 2px;
-    margin-bottom: 16px;
-    text-align: center;
-}
-  
-.Post figure,
-  h5 {
-    margin: 0 0;
-}
-  
-.Heart {
-    color: #f85032;
-}
-  
-.Heart:hover {
-    color: #3FADB8;
-}
-  
-.HeartOutline:hover {
-    color: #f85032;
+  background-color: #000000;
+  border: 1px solid #4f4f4f;
+  border-radius: 2px;
+  margin-bottom: 16px;
+  text-align: center;
 }
 
+.Post figure,
+h5 {
+  margin: 0 0;
+}
+
+.Heart {
+  color: #f85032;
+}
+
+.Heart:hover {
+  color: #3fadb8;
+}
+
+.HeartOutline:hover {
+  color: #f85032;
+}
 
 .Bookmark {
-    color: #3FADB8;
+  color: #3fadb8;
 }
-  
+
 .Bookmark:hover {
-    color: #3FADB8;
+  color: #3fadb8;
 }
-  
+
 .BookmarkOutline:hover {
-    color:  #3FADB8;
+  color: #3fadb8;
 }

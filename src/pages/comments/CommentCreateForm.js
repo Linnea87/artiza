@@ -9,18 +9,17 @@ import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
 function CommentCreateForm(props) {
- 
   const {
     post,
-    setPost, 
-    event, 
-    setEvent, 
-    setComments, 
-    profileImage, 
+    setPost,
+    event,
+    setEvent,
+    setComments,
+    profileImage,
     profile_id,
-    evComment 
+    evComment,
   } = props;
-  
+
   const [content, setContent] = useState("");
   const handleChange = (event) => {
     setContent(event.target.value);
@@ -38,7 +37,7 @@ function CommentCreateForm(props) {
         ...prevComments,
         results: [data, ...prevComments.results],
       }));
-      if(evComment){
+      if (evComment) {
         setEvent((prevEvent) => ({
           results: [
             {
@@ -48,8 +47,8 @@ function CommentCreateForm(props) {
           ],
         }));
         setContent("");
-        return
-      }else{
+        return;
+      } else {
         setPost((prevPost) => ({
           results: [
             {
