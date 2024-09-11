@@ -55,8 +55,7 @@ const ProfilePost = ({
   return (
       <Card className={styles.Post}>
         <Link to={`/posts/${id}`}>
-          <Card.Img 
-            style={{ width: "100%", height: "140px" }} 
+          <Card.Img  
             src={image} 
             className="img-fluid" 
             alt="Post image"

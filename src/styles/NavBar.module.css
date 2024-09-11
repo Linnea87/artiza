@@ -10,3 +10,9 @@
 .Active i {
     color: #3FADB8;
 } 
+
+.Logo {
+
+    height: 55px;
+    max-width: 100px;
+}
