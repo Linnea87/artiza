@@ -1,24 +1,26 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter as Router } from "react-router-dom";
-import { CurrentUserProvider } from "./contexts/CurrentUserContext";
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { CurrentUserProvider } from './contexts/CurrentUserContext';
 import { ProfileDataProvider } from "./contexts/ProfileDataContext";
 import { SelectedCategoryProvider } from "./contexts/SelectedCategoryContext";
 
-ReactDOM.render(
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(
   <Router>
     <CurrentUserProvider>
       <ProfileDataProvider>
-        <SelectedCategoryProvider>
-          <App />
-        </SelectedCategoryProvider>
+      <SelectedCategoryProvider>
+        <App />
+      </SelectedCategoryProvider>
       </ProfileDataProvider>
     </CurrentUserProvider>
-  </Router>,
-  document.getElementById("root")
+  </Router>
 );
 
 // If you want to start measuring performance in your app, pass a function
