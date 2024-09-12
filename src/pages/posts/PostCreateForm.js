@@ -189,16 +189,18 @@ function PostCreateForm() {
                   />
                 </Form.Label>
               )}
-
               <Form.File
                 id="image-upload"
                 accept="image/*"
                 onChange={handleChangeImage}
                 ref={imageInput}
-                alt="post image"
-                required
               />
             </Form.Group>
+            {errors?.image?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>

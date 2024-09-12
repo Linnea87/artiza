@@ -19,8 +19,8 @@ import NotFound from "./components/NotFound";
 
 function App() {
   const currentUser = useCurrentUser();
-  const selectedCategory = useSelectedCategory();
   const profile_id = currentUser?.profile_id || "";
+  const selectedCategory = useSelectedCategory();
 
   return (
     <div className={styles.App}>
