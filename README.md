@@ -160,6 +160,168 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 ## Features
 
+### Existing Features:
+
+#### NavBar
+
+Includes a responsive navigation bar with the following elements:
+
+* Logo: ARTiza logo with a link to the home page.
+
+* Navigation Links: Home, About, SignIn and SignUp (for non-authenticated users). A Create Post, Feeds, Bookmarks, SignOut and Profile (for authenticated users).
+
+<details> 
+<summary>NavBar Non signed In user Image</summary>
+
+![](src/docs-readme/images/signout-user.png)
+</details>
+<br>
+<details> 
+<summary>NavBar signed In user Image</summary>
+
+![](src/docs-readme/images/signin-user.png)
+</details>
+
+#### About Page
+
+The About page serves as a concise guide to ARTiza, detailing its purpose and functionalities. It informs users about the website's features, encourages sign-ups, and provides connection through social media links. Additionally, it includes copyright information.
+
+<details> 
+<summary>About Us Image</summary>
+
+![](src/docs-readme/images/about.png)
+</details>
+
+#### Landing Page
+
+On ARTiza, you can easily browse recent posts from platform users, featuring key details such as:
+
+* Avatar images of the creators
+* Posting dates to keep you up to date with the latest content
+* Featured images that showcase the artwork
+* Titles and descriptions that offer insight into each post
+* Like, comment, and bookmark counts to show engagement and popularity
+
+On the right side of the screen, you’ll find:
+
+* **Most Followed Profiles**: Discover and connect with top creators. Each profile includes a "Follow" button, making it easy to engage and stay updated on their latest works.
+* **Art Categories**: Explore a variety of art categories and discover posts tailored to your interests. Simply choose a category to dive into related content.
+
+Additionally, users can take advantage of the search bar to find specific posts by:
+
+* Username
+* Title
+* Category
+
+This design ensures a seamless and interactive way to discover and connect with the ARTiza community, making it easy for users to engage with the platform's content and creators.
+
+<details> 
+<summary>Landing Page image</summary>
+
+![](src/docs-readme/images/landing-page.png)
+</details>
+
+#### Create post Page
+
+Provides for authenticated users with a form to upload images and input details such as title, content and category for their posts.
+
+<details> 
+<summary>Create Post image</summary>
+
+![](src/docs-readme/images/create-post.png)
+</details>
+
+#### Bookmarks Page 
+
+The Bookmarks page on ARTiza is users' personal gallery of inspiration. Here, users can easily revisit and organize all the posts they’ve bookmarked, allowing them to keep track of their favorite artwork, creators, and creative ideas.
+
+Key features of the Bookmarks page:
+
+* **Saved Posts**: Users can view all the artwork they’ve bookmarked in one place, complete with original images, titles, descriptions, and engagement stats such as likes and comments.
+* **Search Functionality**: Quickly find specific bookmarked posts by searching through titles, usernames, or categories.
+* **Organized View**: Navigate through saved content with ease, filtering posts by categories or creators for a more streamlined experience.
+
+The Bookmarks page gives users the flexibility to curate and revisit inspiring content at any time, helping them stay connected with their favorite pieces and artists.
+
+<details> 
+<summary>Bookmarks Page Image</summary>
+
+![](src/docs-readme/images/bookmarks-page.png)
+</details>
+
+#### Feed Page
+
+The Feed page on ARTiza is the user's personalized stream of content from the artists and creators they follow. This page collects all the latest updates, artwork, and posts from their favorite profiles, making it easy for users to stay connected and inspired by the creative journeys that resonate with them.
+
+Key features of the Feed page:
+
+* **Latest Updates**: Users can view the most recent posts from the creators they follow, complete with images, titles, descriptions, and engagement stats like likes, comments, and bookmarks.
+* **Curated Feed**: The feed is automatically curated based on the artists users follow, ensuring they never miss a post from their favorite creators.
+* **Easy Engagement**: Users can interact directly with posts by liking, commenting, or bookmarking, keeping the conversation and inspiration flowing.
+
+The Feed page keeps users engaged with the work of artists they admire, providing a central hub for all their favorite content.
+
+<details> 
+<summary>Feed Page Image</summary>
+
+![](src/docs-readme/images/feed-page.png)
+</details>
+
+#### Single Post Page
+
+The Single Post page on ARTiza provides users with a detailed view of an individual piece of artwork or content. This page showcases the full post, allowing users to engage deeply with the creator's work and connect with the community through various interaction options.
+
+Key features of the Single Post page:
+
+* **Full-Size Artwork**: View the featured image or artwork in full size for a more immersive experience.
+* **Post Details**: Read the post's title, description, and relevant tags to understand the creator's vision and inspiration behind the piece.
+* **Engagement Stats**: See how many likes, comments, and bookmarks the post has received, providing insight into its popularity.
+* **Comment Section**: Engage with the post by leaving comments, participating in discussions, or responding to other users' feedback.
+* **Like and Bookmark**: Users can easily like the post and bookmark it for future reference.
+* **Follow the Creator**: Click on the creator's profile image to be redirected to their profile page. From there, users can follow the creator and explore more of their work.
+
+The Single Post page offers users a comprehensive and interactive experience, allowing them to fully appreciate the artwork while connecting with the ARTiza community and following their favorite creators.
+
+<details> 
+<summary>Single Post Page Image</summary>
+
+![](src/docs-readme/images/single-post.1.png)
+</details>
+
+#### SigIn & SignUp Pages
+
+<details> 
+<summary>SignIn Page Image</summary>
+
+![](src/docs-readme/images/signin-page.png)
+</details>
+
+<br>
+
+<details> 
+<summary>SignUn Page Image</summary>
+
+![](src/docs-readme/images/signup-page.png)
+</details>
+
+#### No REsults & 404 Pages
+
+<details> 
+<summary>No Results Image</summary>
+
+![](src/docs-readme/images/noresults-page.png)
+</details>
+
+<br>
+
+<details> 
+<summary>404 Image</summary>
+
+![](src/assets/404-page.png)
+</details>
+
+[Back to top](#table-of-contents)
+
 ### C.R.U.D 
 
 * Testing CRUD throughout the apps:
@@ -195,6 +357,22 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 | /followers/      | ✅      |
 | /followers/:id/  | ✅      |
 
+
+[Back to top](#table-of-contents)
+
+### Future Features Left to Implement
+
+* Create Albums in Bookmarks: Users will soon be able to organize their bookmarked posts into personalized albums. This feature will allow for better management and categorization of favorite content, making it easier to access and enjoy saved inspirations.
+
+* Reply to Comments: Upcoming functionality will enable users to reply directly to comments on posts. This will enhance interaction and facilitate more dynamic and engaging conversations within the community.
+
+* Private Messages: A new private messaging system is in the works, allowing users to send and receive messages securely. This feature will provide a private channel for users to communicate, collaborate, and connect.
+
+* Monthly Challenges Page: A dedicated page for monthly art challenges will be introduced. This feature will offer themed challenges to inspire creativity and encourage participation, with opportunities to showcase new works and engage with fellow artists.
+
+* Job-Seeking Feature: A job-seeking feature is being developed to help users explore career opportunities in the art and creative industries. This will include job listings, application options, and direct connections with potential employers.
+
+[Back to top](#table-of-contents)
 
 ## Testing
 
@@ -242,14 +420,28 @@ Automated tests for the NavBar were run on the project using the React Testing L
     </details>
     <br>
         
-4. Lighthouse
+4. The Lighthouse audit resulted in a score of 78 for Best Practices when a user are logged in, primarily due to:
 
-    <details>
-    <summary>Lighthouse Validator Image</summary>
+* Third-Party Cookies: Affecting security and performance.
+* Separate Domains for API and Frontend: Impacting authentication and communication when users are logged in.
 
-    ![]()
-    </details>
-    <br>
+These issues are also noted in the Moment walkthrough, and due to submission deadlines, immediate fixes are not possible. These issues will be addressed and investigated more deeply when time permits.
+
+When users are not logged in, Lighthouse reports a better score for Best Practices, indicating these issues are more pronounced during authenticated sessions.
+
+<details>
+<summary>logged in Lighthouse Image</summary>
+
+![](src/docs-readme/images/loggedin-lighthouse.png)
+</details>
+<br>
+
+<details>
+<summary>Not logged in Lighthouse Image</summary>
+
+![](src/docs-readme/images/not-loggedin-lighthouse.png)
+</details>
+<br>
 
 [Back to top](#table-of-contents)
 
@@ -488,4 +680,28 @@ In the src directory, open axiosDefaults.js and change axios.defaults.baseURL to
 
 [Back to top](#table-of-contents)
 
+
+## Credits
+
+### Content
+
+* Code Institute: The creation of the project came to life by utilising the Moments walkthrough step-by-step as a base foundation, and then building upon it to make the project my own.
+
+### Media
+
+* Canva: for creating my logo, image icons, such as uploading an image, no results found and 404 Page Not Found.
+
+* Images for the Posts for are my own art.
+
+* Profile images are taken from [Pinterest](https://se.pinterest.com/)
+
+* LogIn and SignUp images are taken from [Vecteezy](https://www.vecteezy.com/)
+
+### Acknowledgements
+
+Finally, I would like to extend my sincere gratitude to my Mentor [Martina Terlevic](https://github.com/SephTheOverwitch) for her much appreciated guidance, advice and encouragement during this final challenging project! I would also like to thank the tutors from Code Institute that helped me overcome issues that I faced with the project.
+
+Best wishes and happy coding!
+
+Linnéa Ternevik
 
