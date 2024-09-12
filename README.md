@@ -1,7 +1,7 @@
 # ARTiza
 ![Mockup](src/docs-readme/images/mockup.png)
-
 [LIVE SITE](https://artiza-e7a78d9d5179.herokuapp.com/)
+
 ARTiza is a vibrant online community designed to bring artists and art enthusiasts together through meaningful interaction and collaboration. The platform allows users to post their artwork, like and comment on others' posts, follow their favorite creators, and bookmark inspiring pieces for future reference. Through these interactive features, ARTiza fosters a supportive and engaging environment where artists can showcase their talent, receive feedback, and build connections with fellow creators.
 
 ARTiza’s frontend, powered by the React Framework, seamlessly integrates with the Django Rest Framework API on the backend to ensure a smooth and responsive user experience. The platform not only makes it easy to share and engage with art but also provides a space for users to continuously explore, learn, and grow as part of a dynamic and creative community.
