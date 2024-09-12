@@ -140,6 +140,12 @@ const NavBar = () => {
             >
               <i alt="home-icon" className="fas fa-home"></i>Home
             </NavLink>
+            <NavLink
+              className={styles.NavLink}
+              activeClassName={styles.Active}
+              to="/about">
+              <i className="fa-brands fa-readme"></i> About
+            </NavLink>
 
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
