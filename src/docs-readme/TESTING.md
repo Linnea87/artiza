@@ -124,3 +124,11 @@ Throughout testing has been performed and is described below, it contains of man
 | Access Page                  | Navigate to the "Home" page | Browser displays a list of categories names and icon linking to their respective filtering post pages | PASS    |
 | Filtering categories valid   | Click on a category name    | Browser displays all fetched posts in that category                                                   | PASS    |
 | Filtering categories invalid | Click on a category name    | Browser displays a message "No posts in this category."                                               | PASS    |
+
+### About Page
+
+| Testing               | Steps                                                           | Expected Outcome                                                                                                    | Results |
+|-----------------------|-----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|---------|
+| About Page Navigation | Click on the "About" link in the navigation bar                 | The browser should navigate to the "About" page                                                                     | PASS    |
+| Content Display       | Check if the content on the "About" page is displayed correctly | The page display a brief introduction about the platform, including featured details and the purpose of the website | PASS    |
+| Sign-Up Button        | Click on the "Sign Up Now!" button                              | The browser should navigate to the sign-up page                                                                     | PASS    |

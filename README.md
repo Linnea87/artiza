@@ -1,4 +1,20 @@
 # ARTiza
+
+ARTiza is a vibrant online community designed to bring artists and art enthusiasts together through meaningful interaction and collaboration. The platform allows users to post their artwork, like and comment on others' posts, follow their favorite creators, and bookmark inspiring pieces for future reference. Through these interactive features, ARTiza fosters a supportive and engaging environment where artists can showcase their talent, receive feedback, and build connections with fellow creators.
+
+ARTiza’s frontend, powered by the React Framework, seamlessly integrates with the Django Rest Framework API on the backend to ensure a smooth and responsive user experience. The platform not only makes it easy to share and engage with art but also provides a space for users to continuously explore, learn, and grow as part of a dynamic and creative community.
+
+This project was built as my final Advanced Frontend Portfolio submission for the Diploma in Full Stack Software Development at [Code Institute](https://codeinstitute.net/se/).
+
+DEPLOYED BACKEND API RENDER [LINK](https://artiza-api-fbf88e8a2da5.herokuapp.com/)
+
+BACKEND GITHUB [REPOSITORY](https://github.com/Linnea87/artiza-api)
+
+DEPLOYED FRONTEND RENDER [LINK - LIVE SITE](https://artiza-e7a78d9d5179.herokuapp.com/)
+
+
+
+
 ## Table of Contents
 - [UX](#ux)
     - [Site Purpose](#site-purpose)
@@ -142,7 +158,101 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 "Playfair Display", sans-serif
 
+## Features
+
+### C.R.U.D 
+
+* Testing CRUD throughout the apps:
+
+| App        | Create | Read | Update | Delete |
+|------------|--------|------|--------|--------|
+| Posts      | ✅      | ✅    | ✅      | ✅      |
+| Categories | n/a    | ✅    | ✅      | n/a    |
+| Likes      | ✅      | ✅    | n/a    | ✅      |
+| Bookmarks  | ✅      | ✅    | ✅      | ✅      |
+| Profiles   | n/a    | ✅    | ✅      | n/a    |
+| Comments   | ✅      | ✅    | ✅      | ✅      |
+| Followers  | ✅      | ✅    | n/a    | ✅      |
+
+
+* Testing URL*
+
+| URL              | Passed |
+|------------------|--------|
+| root             | ✅      |
+| /posts/          | ✅      |
+| /posts/:id/      | ✅      |
+| /posts/create/   | ✅      |
+| /posts/:id/edit  | ✅      |
+| /bookmarks/      | ✅      |
+| /bookmarks/:id/  | ✅      |
+| /categories/     | ✅      |
+| /categories/:id/ | ✅      |
+| /feed/           | ✅      |
+| /about/          | ✅      |
+| /profiles/       | ✅      |
+| /profiles/:id/   | ✅      |
+| /followers/      | ✅      |
+| /followers/:id/  | ✅      |
+
+
 ## Testing
+
+### Manual Testing:
+
+A separate document for testing can be viewed here: [TESTING.md](https://github.com/Linnea87/artiza/blob/main/src/docs-readme/TESTING.md)
+
+### Automated Testing
+
+Automated tests for the NavBar were run on the project using the React Testing Library, following the approach demonstrated in the Moments Walkthrough Project.
+
+<details> 
+<summary>React Library Test NavBar Image</summary>
+
+![](src/docs-readme/images/automated-test.png)
+</details>
+  
+  
+### Validator Testing:
+
+1. CSS files pass through the [W3C Jigsaw](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fartiza-e7a78d9d5179.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=sv) validator with no issues found.
+
+    <details> 
+    <summary> CSS Validation Image</summary>
+
+    ![](src/docs-readme/images/css-validation.png)
+    </details>
+    <br>
+
+2. All HTML files passed through the [W3C Markup](https://validator.w3.org/nu/?doc=https%3A%2F%2Fartiza-e7a78d9d5179.herokuapp.com%2F) Validator with no errors.
+
+    <details>
+    <summary>MarkUp Validator Image</summary>
+
+    ![](src/docs-readme/images/html-validator.png)
+    </details>
+    <br>
+
+3. All JSX code pass through `npx eslint src/**/*.js` [ESLint](https://eslint.org/). All console.log(err); have been left in place and commented out, as it was suggested in the "Moments" Walkthrough Project.
+
+    <details>
+    <summary>ESLint Terminal Results Image</summary>
+
+    ![](src/docs-readme/images/eslint.png)
+    </details>
+    <br>
+        
+4. Lighthouse
+
+    <details>
+    <summary>Lighthouse Validator Image</summary>
+
+    ![]()
+    </details>
+    <br>
+
+[Back to top](#table-of-contents)
+
 
 ### Bugs
 
@@ -218,6 +328,8 @@ Feedback errors such as these from the API are expected. Here are the examples t
 
 * Popper: is used for positioning and aligning pop-up elements, such as dropdown menus, tooltips, or popovers, relative to their reference elements.
 
+[Back to top](#table-of-contents)
+
 ## Databases Platform and Cloud Storage
 
 * ElephantSQL Postgres: database service provided by ElephantSQL for data storage.
@@ -258,6 +370,8 @@ Several components have been implemented within this project that have been reus
 
 ### Utils
 * utils.js: contains helper functions for managing pagination (fetchMoreData), updating follower counts and following status (followHelper and unfollowHelper), and handling authentication tokens (setTokenTimestamp, shouldRefreshToken, removeTokenTimestamp). These functions streamline data management and authentication tasks within the Moments WalkThrough Project.
+
+[Back to top](#table-of-contents)
 
 ## Deployment
 
@@ -374,63 +488,4 @@ In the src directory, open axiosDefaults.js and change axios.defaults.baseURL to
 
 [Back to top](#table-of-contents)
 
-## Testing
-
-### Manual Testing:
-
-A separate document for testing can be viewed here: [TESTING.md](https://github.com/Linnea87/artiza/blob/main/src/docs-readme/TESTING.md)
-
-### Automated Testing
-
-Automated tests for the NavBar were run on the project using the React Testing Library, following the approach demonstrated in the Moments Walkthrough Project.
-
-<details> 
-<summary>React Library Test NavBar Image</summary>
-
-![](src/docs-readme/images/automated-test.png)
-</details>
-  
-  
-### Validator Testing:
-
-1. CSS files pass through the [W3C Jigsaw](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fartiza-e7a78d9d5179.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=sv) validator with no issues found.
-
-    <details> 
-    <summary> CSS Validation Image</summary>
-
-    ![](src/docs-readme/images/css-validation.png)
-    </details>
-    <br>
-
-2. All HTML files passed through the [W3C Markup](https://validator.w3.org/nu/?doc=https%3A%2F%2Fartiza-e7a78d9d5179.herokuapp.com%2F) Validator with no errors.
-
-    <details>
-    <summary>MarkUp Validator Image</summary>
-
-    ![](src/docs-readme/images/html-validator.png)
-    </details>
-    <br>
-
-3. All JSX code pass through `npx eslint src/**/*.js` [ESLint](https://eslint.org/). All console.log(err); have been left in place and commented out, as it was suggested in the "Moments" Walkthrough Project.
-
-    <details>
-    <summary>ESLint Terminal Results Image</summary>
-
-    ![](src/docs-readme/images/eslint.png)
-    </details>
-    <br>
-        
-
-4. Lighthouse
-
-  
-
-    <details>
-    <summary>Lighthouse Validator Image</summary>
-
-    ![]()
-    </details>
-    <br>
-
-[Back to top](#table-of-contents)
 
