@@ -144,7 +144,7 @@ A separate document for the wireframes can be viewed here:
 
 ### Database Schema:
 
-This has been uploaded to the Backend README, which can be found [HERE]()
+This has been uploaded to the Backend README, which can be found [HERE](https://github.com/Linnea87/artiza-api/blob/main/readmedoc/database.png)
 
 ### Colour Scheme:
 
