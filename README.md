@@ -1,30 +1,27 @@
 # ARTiza
 ![Mockup](src/docs-readme/images/mockup.png)
-[LIVE SITE](https://artiza-e7a78d9d5179.herokuapp.com/)
+[LIVE SITE](https://artiza.vercel.app)
 
 ARTiza is a vibrant online community designed to bring artists and art enthusiasts together through meaningful interaction and collaboration. The platform allows users to post their artwork, like and comment on others' posts, follow their favorite creators, and bookmark inspiring pieces for future reference. Through these interactive features, ARTiza fosters a supportive and engaging environment where artists can showcase their talent, receive feedback, and build connections with fellow creators.
 
-ARTiza’s frontend, powered by the React Framework, seamlessly integrates with the Django Rest Framework API on the backend to ensure a smooth and responsive user experience. The platform not only makes it easy to share and engage with art but also provides a space for users to continuously explore, learn, and grow as part of a dynamic and creative community.
+ARTiza's frontend, powered by the React Framework, seamlessly integrates with the Django Rest Framework API on the backend to ensure a smooth and responsive user experience. The platform not only makes it easy to share and engage with art but also provides a space for users to continuously explore, learn, and grow as part of a dynamic and creative community.
 
 This project was built as my final Advanced Frontend Portfolio submission for the Diploma in Full Stack Software Development at [Code Institute](https://codeinstitute.net/se/).
 
-DEPLOYED BACKEND API RENDER [LINK](https://artiza-api-fbf88e8a2da5.herokuapp.com/)
+DEPLOYED BACKEND API [LINK](https://artiza-api.onrender.com)
 
 BACKEND GITHUB [REPOSITORY](https://github.com/Linnea87/artiza-api)
 
-DEPLOYED FRONTEND RENDER [LINK - LIVE SITE](https://artiza-e7a78d9d5179.herokuapp.com/)
-
-
-
+DEPLOYED FRONTEND [LINK - LIVE SITE](https://artiza.vercel.app)
 
 ## Table of Contents
 - [UX](#ux)
     - [Site Purpose](#site-purpose)
-    - [Site Goal](#site-goal)
+    - [Site Goals](#site-goals)
     - [Audience](#audience)
     - [Communication](#communication)
     - [Current User Goals](#current-user-goals)
-    - [New User Goals](#new-use-goals)
+    - [New User Goals](#new-user-goals)
 - [User Stories](#user-stories)
     - [User Stories List](#user-stories-list)
     - [User Stories and Issues](#user-stories-and-issues)
@@ -33,36 +30,37 @@ DEPLOYED FRONTEND RENDER [LINK - LIVE SITE](https://artiza-e7a78d9d5179.herokuap
     - [GitHub Kanban Board](#github-kanban-board)   
 - [Design](#design)
     - [Wireframes](#wireframes)
-    - [Database Scheme](#database-scheme)
+    - [Database Schema](#database-schema)
     - [Colour Scheme](#colour-scheme)
     - [Typography](#typography)
 - [Features](#features)
     - [Existing Features](#existing-features)
-    - [C.R.U.D](#c.r.u.d)
+    - [C.R.U.D](#crud)
 - [Testing](#testing)
-    - [Manual Testing](#manual.testing)
+    - [Manual Testing](#manual-testing)
     - [Automated Testing](#automated-testing)
     - [Validator Testing](#validator-testing)
     - [Bugs](#bugs)
     - [Unfixed Bugs](#unfixed-bugs)
 - [Technologies Used](#technologies-used)
     - [Main Languages Used](#main-languages-used)
-    - [Frameworks, Libraries & Programs Used](#frameworks-libraries-&-programs-used)
+    - [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
     - [Databases Platform and Cloud Storage](#databases-platform-and-cloud-storage)
 - [Components](#components)
-    - [Contexts](#context)
+    - [Contexts](#contexts)
     - [Hooks](#hooks)
     - [Utils](#utils)
 - [Deployment](#deployment)
     - [Running the project by using Gitpod](#running-the-project-by-using-gitpod)
-    - [Deploying with Heroku](#deploying-with-heroku)
+    - [Deploying the Backend with Render](#deploying-the-backend-with-render)
+    - [Deploying the Frontend with Vercel](#deploying-the-frontend-with-vercel)
     - [Connecting Frontend to the API](#connecting-frontend-to-the-api)
-    - [Final Deploy to Heroku](#final-deploy-to-heroku)
     - [Cloning and Forking](#cloning-and-forking)
 - [Credits](#credits)
     - [Content](#content)
     - [Media](#media)
     - [Acknowledgements](#acknowledgements)
+
 
 ## UX
 
@@ -204,7 +202,7 @@ On ARTiza, you can easily browse recent posts from platform users, featuring key
 * Titles and descriptions that offer insight into each post
 * Like, comment, and bookmark counts to show engagement and popularity
 
-On the right side of the screen, you’ll find:
+On the right side of the screen, you'll find:
 
 * **Most Followed Profiles**: Discover and connect with top creators. Each profile includes a "Follow" button, making it easy to engage and stay updated on their latest works.
 * **Art Categories**: Explore a variety of art categories and discover posts tailored to your interests. Simply choose a category to dive into related content.
@@ -235,11 +233,11 @@ Provides for authenticated users with a form to upload images and input details 
 
 #### Bookmarks Page 
 
-The Bookmarks page on ARTiza is users' personal gallery of inspiration. Here, users can easily revisit and organize all the posts they’ve bookmarked, allowing them to keep track of their favorite artwork, creators, and creative ideas.
+The Bookmarks page on ARTiza is users' personal gallery of inspiration. Here, users can easily revisit and organize all the posts they've bookmarked, allowing them to keep track of their favorite artwork, creators, and creative ideas.
 
 Key features of the Bookmarks page:
 
-* **Saved Posts**: Users can view all the artwork they’ve bookmarked in one place, complete with original images, titles, descriptions, and engagement stats such as likes and comments.
+* **Saved Posts**: Users can view all the artwork they've bookmarked in one place, complete with original images, titles, descriptions, and engagement stats such as likes and comments.
 * **Search Functionality**: Quickly find specific bookmarked posts by searching through titles, usernames, or categories.
 * **Organized View**: Navigate through saved content with ease, filtering posts by categories or creators for a more streamlined experience.
 
@@ -395,7 +393,7 @@ Automated tests for the NavBar were run on the project using the React Testing L
   
 ### Validator Testing:
 
-1. CSS files pass through the [W3C Jigsaw](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fartiza-e7a78d9d5179.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=sv) validator with no issues found.
+1. CSS files pass through the [W3C Jigsaw](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fartiza.vercel.app%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=sv) validator with no issues found.
 
     <details> 
     <summary> CSS Validation Image</summary>
@@ -404,7 +402,7 @@ Automated tests for the NavBar were run on the project using the React Testing L
     </details>
     <br>
 
-2. All HTML files passed through the [W3C Markup](https://validator.w3.org/nu/?doc=https%3A%2F%2Fartiza-e7a78d9d5179.herokuapp.com%2F) Validator with no errors.
+2. All HTML files passed through the [W3C Markup](https://validator.w3.org/nu/?doc=https%3A%2F%2Fartiza.vercel.app%2F) Validator with no errors.
 
     <details>
     <summary>MarkUp Validator Image</summary>
@@ -526,13 +524,13 @@ Feedback errors such as these from the API are expected. Here are the examples t
 
 ## Databases Platform and Cloud Storage
 
-* ElephantSQL Postgres: database service provided by ElephantSQL for data storage.
-
-* Heroku Postgres: SQL database service provided directly by Heroku for storing data.
+* Supabase Postgres: database service provided by Supabase for data storage.
 
 * Cloudinary: to store images and static files in production.
 
-* Heroku: to deploy and run the application in production.
+* Render: to deploy and run the backend API in production.
+
+* Vercel: to deploy and run the frontend application in production.
 
 [Back to top](#table-of-contents)
 
@@ -575,84 +573,44 @@ Several components have been implemented within this project that have been reus
 
 2. Click the green button that says "Gitpod" and the project will now open up in Gitpod.
 
-### Deploying with Heroku:
+### Deploying the Backend with Render:
 
-I followed the below steps using the Code Institute tutorial:
+1. Go to [Render.com](https://render.com) and log in or create an account.
+2. Click **New** → **Web Service** and connect your GitHub repository.
+3. Fill in the following settings:
+    * **Name:** artiza-api
+    * **Language:** Python 3
+    * **Branch:** main
+    * **Region:** Frankfurt (EU Central)
+    * **Build Command:** `pip install -r requirements.txt && python manage.py migrate`
+    * **Start Command:** `gunicorn artiza_api.wsgi:application`
+    * **Instance Type:** Free
+4. Add the following environment variables:
+    * `SECRET_KEY` — your secret key
+    * `DATABASE_URL` — your Supabase connection string
+    * `CLOUDINARY_URL` — your Cloudinary URL
+    * `ALLOWED_HOST` — artiza-api.onrender.com
+    * `CLIENT_ORIGIN` — your Vercel frontend URL
+    * `PYTHON_VERSION` — 3.9.19
+5. Click **Deploy Web Service**.
 
+### Deploying the Frontend with Vercel:
 
-1. Go to [Heroku.com](https://.heroku.com) and log in; if you do not already have an account then you will need to create one.
-
-2. Click the `New` dropdown and select `Create New App`.
-
-3. Enter a name for your new project, all Heroku apps need to have a unique name, you will be prompted if you need to change it.
-
-4. Select the region you are working in.
-
-In the Deploy tab:
-
-1. Connect your Heroku account to your Github Repository following these steps:
-
-    * Click on the `Deploy` tab and choose `Github-Connect to Github`.
-    * Enter the GitHub repository name and click on `Search`.
-    * Choose the correct repository for your application and click on `Connect`.
-
-2. You can then choose to deploy the project manually or automatically, automatic deployment will generate a new application every time you push a change to Github, whereas manual deployment requires you to push the `Deploy Branch` button whenever you want a change made.
-
-3. Once you have chosen your deployment method and have clicked Deploy Branch your application will be built and you should now see the `View button`, click this to open your application.
-
-The site was deployed to Heroku. The steps to deploy are as follows:
-
-1. Launch the gitpod workspace.
-
-2. Install ReactJS:
-            
-    ```
-    npx create-react-app . --use-npm
-    npm start
-    ```
-
-3. Install the following packages using the command npm install:
-        
-    ```
-    react-bootstrap@1.6.3 bootstrap@4.6.0
-    react-router-dom@5.3.0
-    axios
-    react-infinite-scroll-component
-    msw --save-dev
-    jwt-decode
-    -g eslint
-    ```
-    
-4. Git add, commit, and push changes to gitpod.
-    
-5. Create the project app on Heroku, and link the GitHub repository by navigating to the 'Deploy' tab.
+1. Go to [Vercel.com](https://vercel.com) and log in or create an account.
+2. Click **Add New** → **Project** and import your GitHub repository.
+3. Select **Create React App** as the framework preset.
+4. Click **Deploy**.
 
 ### Connecting Frontend to the API:
 
-1. Navigated to the Heroku app of the project pp5-drf-api, and under the Settings tab, added the following configvars:
-
-    * Key: `CLIENT_ORIGIN` | Value: https://react-app-name.herokuapp.com
-    * Key: `CLIENT_ORIGIN_DEV` | Value: https://gitpod-browser-link.ws-eu54.gitpod.io
-
-2. Check that the trailing slash `\` at the end of both links has been removed, and save the configvar pairs.
-
-3. Install the Axios package, & create supporting `axiosDefaults.js` as shown in [Moments Walkthrough](https://github.com/Code-Institute-Solutions/moments/blob/cf955d2f2e6f70f61c92d1f9de85558d8e49f3a8/src/api/axiosDefaults.js).
-
-### Final Deploy to Heroku:
-
-1. In the `scripts` section of `package.json` in gitpod, added the following command:
-    ```
-    "heroku-prebuild": "npm install -g serve",
-    ```
-
-2. Add Procfile to project root & populate with the following:
-    ```
-    web: serve -s build
-    ```
-
-3. Repeat the steps of git add/commit/push.
-
-4. Deploy the project via the deploy button on Heroku.
+1. In `src/api/axiosDefaults.js`, set `axios.defaults.baseURL` to your Render API URL:
+```javascript
+    axios.defaults.baseURL = "https://artiza-api.onrender.com/";
+```
+2. In Render environment variables, add `CLIENT_ORIGIN` with your Vercel frontend URL:
+```
+    CLIENT_ORIGIN = https://artiza.vercel.app
+```
 
 ### Cloning and Forking:
 
@@ -706,4 +664,3 @@ Finally, I would like to extend my sincere gratitude to my Mentor [Martina Terle
 Best wishes and happy coding!
 
 Linnéa Ternevik
-
